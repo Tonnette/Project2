@@ -1,6 +1,5 @@
 module.exports = function(sequelize, DataTypes) {
     var Comments = sequelize.define("Movies", {
-        // Giving the Author model a name of type STRING
         title: {
             type: DataTypes.STRING,
             allowNull: false,
@@ -22,12 +21,14 @@ module.exports = function(sequelize, DataTypes) {
             validate: {
                 len: [1]
             }
+        },
+        date: {
+            type: DataTypes.DATE,
+            allowNull: false,
         }
     });
 
     Comments.associate = function(models) {
-        // Associating Author with Posts
-        // When an Author is deleted, also delete any associated Posts
         Comments.belongsTo(models.Users, {
             onDelete: "cascade"
         });
