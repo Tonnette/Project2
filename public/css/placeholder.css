@@ -1,5 +1,5 @@
 body {
-    background-color: black;
+    background-color:#191a19;
 }
 
 #movie-poster {
@@ -36,10 +36,10 @@ top: 10px !important;
     text-align: center;
 }
 
-#card-1{
-    margin-left: 50px;
+nav {
+    background-color: #2d2e2d;
 }
 
-#card-5{
-    margin-left: 50px;
+.posterContainer {
+    margin-left:70px;
 }
