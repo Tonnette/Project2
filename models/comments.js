@@ -1,13 +1,5 @@
 module.exports = function(sequelize, DataTypes) {
-    var Comments = sequelize.define("Movies", {
-        title: {
-            type: DataTypes.STRING,
-            allowNull: false,
-            validate: {
-                len: [1, 140]
-            }
-
-        },
+    var Comments = sequelize.define("Comments", {
         body: {
             type: DataTypes.STRING,
             allowNull: false,
@@ -22,10 +14,10 @@ module.exports = function(sequelize, DataTypes) {
                 len: [1]
             }
         },
-        date: {
-            type: DataTypes.DATE,
-            allowNull: false,
-        }
+        // date: {
+        //     type: DataTypes.DATE,
+        //     allowNull: false,
+        // }
     });
 
     Comments.associate = function(models) {

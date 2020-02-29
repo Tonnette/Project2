@@ -12,12 +12,12 @@ module.exports = function(app) {
 
     // homepage
     app.get("/", function(req, res) {
-        res.sendFile(path.join(__dirname, "../public/.html"));
+        res.sendFile(path.join(__dirname, "../public/index.html"));
     });
 
     // search reesult list when user clicked search
     app.get("/search", function(req, res) {
-        res.sendFile(path.join(__dirname, "../public/.html"));
+        res.sendFile(path.join(__dirname, "../public/working-movie-app-solved.html"));
     });
 
     // user profile page

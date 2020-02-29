@@ -3,28 +3,31 @@ $(document).ready(function() {
     $(".myText").hide();
 
     var userMoviesArray = [];
-    var commentInput = $("#submit");
+    var starValue;
+    var commentInput = $("#textarea1")
 
-    $(document).on("submit", "#author-form", commentSubmit);
+    $(".submit").on("click", commentSubmit);
+    $("label").on("click", function() {
+        starValue = this.id;
+    });
+
 
     function commentSubmit(event) {
         event.preventDefault();
-        if (!nameInput.val().trim().trim()) {
+        if (!commentInput.val().trim().trim()) {
             return;
         }
         newComment({
-            name: nameInput
-                .val()
-                .trim()
+            comment: commentInput.val(),
+            rating: starValue
         });
+
     }
 
-    function newComment(authorData) {
-        $.post("/api/new_comment", authorData)
-            .then(getAuthors);
+    function newComment(newCommentData) {
+        $.post("/api/new_comment", newCommentData)
+            .then(getComments);
     }
-
-
 
 
     function displayPosters() {
