@@ -15,10 +15,10 @@ module.exports = function(app) {
         res.sendFile(path.join(__dirname, "../public/index.html"));
     });
 
-    // // search result list when user clicked search
-    // app.get("/search", function(req, res) {
-    //     res.sendFile(path.join(__dirname, "../public/index.html"));
-    // });
+    // search result list when user clicked search
+    app.get("/new", function(req, res) {
+        res.sendFile(path.join(__dirname, "../public/index.html"));
+    });
 
     // // user profile page
     // app.get("/profile", function(req, res) {

@@ -10,6 +10,7 @@
 </head>
 
 <body>
+
     <body id="home" class=scrollspy></body>
     <div class="navbar-fixed">
         <nav class="black">
@@ -46,39 +47,59 @@
                 <!-- Rendered Buttons will get Dumped Here  -->
                 <div id="buttons-view" class="section section-search white white-text center scrollspy">
 
-                
-                <form id="movie-form" class="searchInput center-align">
-                    <label for="movie-input">Search a movie!</label>
-                    <input type="text" id="movie-input">
-                    <br>
-                    <!-- Button triggers new movie to be added -->
-                    <!-- <input id="add-movie" type="submit" value="Search"> -->
-                    <div class="myButton col l12 m12 s12">
-                        <button class="btn waves-effect waves-light" id="add-movie" type="submit"
-                            name="action">Search</button>
+
+                    <form id="movie-form" class="searchInput center-align">
+                        <label for="movie-input">Search a movie!</label>
+                        <input type="text" id="movie-input">
+                        <br>
+                        <!-- Button triggers new movie to be added -->
+                        <!-- <input id="add-movie" type="submit" value="Search"> -->
+                        <div class="myButton col l12 m12 s12">
+                            <button class="btn waves-effect waves-light" id="add-movie" type="submit"
+                                name="action">Search</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+
+    <div row>
+        <form class="col s8">
+            <div class="col s4 m4 l4">
+                <div id="movie-poster" class="right" !important>
+                </div>
+            </div>
+            <div class="container">
+
+
+
+                <form class="col s8 myform">
+                    <div class="input-field col s6 m6 myText">
+                        <div>
+                            <input class="form-control" type="text" id="name" placeholder="Enter Your Name">
+                            <br>
+                        </div>
+
+                        <div>
+                            <label for="textarea1">Write your review here</label>
+                            <textarea id="textarea1" class="materialize-textarea blog-box"></textarea>
+                            <a class="waves-effect waves-light btn dbButton">Submit</a>
+
+                        </div>
+
                     </div>
                 </form>
-            </div>
-            </div>
-        </div>
 
-        <div row>
-            <form class="col s8">
-                <div class="col s4 m4 l4">
-                    <div id="movie-poster" class="right" !important>
-
-
+                <div class="row">
+                    <div class="col s8">
+                        <h2>Blogs</h2>
+                        <hr>
+                        <div id="blog-area"></div>
                     </div>
                 </div>
-                <div class="container">
 
+            </div>
 
-
-                    </div>
-
-                </div>
-
-        </div>
     </div>
 
 
@@ -151,10 +172,10 @@
 
 
 
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-        <script src="js/materialize.js"></script>
-        <script src="js/init.js"></script>
-        <script type="text/javascript" src="./js/movie.js"></script>
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+            <script src="js/materialize.js"></script>
+            <script src="js/init.js"></script>
+            <script type="text/javascript" src="./js/movie.js"></script>
 
 </body>
 
