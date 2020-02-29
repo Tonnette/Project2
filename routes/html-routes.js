@@ -12,21 +12,21 @@ module.exports = function(app) {
 
     // homepage
     app.get("/", function(req, res) {
-        res.sendFile(path.join(__dirname, "../public/.html"));
+        res.sendFile(path.join(__dirname, "../public/index.html"));
     });
 
-    // search reesult list when user clicked search
-    app.get("/search", function(req, res) {
-        res.sendFile(path.join(__dirname, "../public/.html"));
-    });
+    // // search result list when user clicked search
+    // app.get("/search", function(req, res) {
+    //     res.sendFile(path.join(__dirname, "../public/index.html"));
+    // });
 
-    // user profile page
-    app.get("/profile", function(req, res) {
-        res.sendFile(path.join(__dirname, "../public/.html"));
-    });
+    // // user profile page
+    // app.get("/profile", function(req, res) {
+    //     res.sendFile(path.join(__dirname, "../public/.html"));
+    // });
 
     // result when user clicked for any movie detail and comment on them
-    app.get("/movie", function(req, res) {
-        res.sendFile(path.join(__dirname, "../public/.html"));
-    });
+    // app.get("/movie", function(req, res) {
+    //     res.sendFile(path.join(__dirname, "../public/index.html"));
+    // });
 };

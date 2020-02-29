@@ -1,19 +1,76 @@
 $(document).ready(function () {
     $(".myform").hide();
     $(".myText").hide();
-   
+    $(".dbButton").hide();
+
 
     $("#add-movie").on("click", function (event) {
         event.preventDefault();
         $(".posterContainer").hide();
 
         $(".myText").show();
+        $(".dbButton").show();
         // displayChosenPosters()
 
         chosenMovie = $("#movie-input").val().trim();
         chosenMovie = chosenMovie.replace(/\s/g, "_");
         displayChosenMovie();
     })
+
+    $(".dbButton").on("click", function (event) {
+        event.preventDefault();
+        var newBlog = {
+            name: $("#author").val().trim(),
+            blog: $("#chirp-box").val().trim(),
+            created_at: moment().format("YYYY-MM-DD HH:mm:ss")
+        };
+
+        console.log(newBlog);
+        // Send an AJAX POST-request with jQuery
+
+        $.post("/api/new", newBlog)
+            // On success, run the following code
+            .then(function () {
+
+                var row = $("<div>");
+                row.addClass("blog");
+
+                row.append("<p>" + newBlog.name + " reviewed: </p>");
+                row.append("<p>" + newBlog.blog + "</p>");
+                row.append("<p>At " + moment(newBlog.created_at).format("h:mma on dddd") + "</p>");
+
+                $("#blog-area").prepend(row);
+
+            })
+
+        // $("#author").val("");
+        // $("#chirp-box").val("");
+
+    })
+
+// When the page loads, grab all of our chirps
+    $.get("/api/all", function(data) {
+
+        if (data.length !== 0) {
+      
+          for (var i = 0; i < data.length; i++) {
+      
+            var row = $("<div>");
+            row.addClass("blog");
+      
+            row.append("<p>" + data[i].name + " reviewed. </p>");
+            row.append("<p>" + data[i].blog + "</p>");
+            row.append("<p>At " + moment(data[i].created_at).format("h:mma on dddd") + "</p>");
+      
+            $("#blog-area").prepend(row);
+      
+          }
+      
+        }
+      
+      });
+
+
 
     function displayPosters() {
         var queryURL = "https://api.themoviedb.org/3/movie/top_rated?api_key=6dab14e95b96319c6b9d19d21edcbaaa";
@@ -38,39 +95,40 @@ $(document).ready(function () {
     }
 
     function displayChosenMovie() {
-            $(".posterContainer").hide();
-            $(".myText").show();
-           
-            console.log("what's chosen movie" + chosenMovie)
-            var queryURL = "https://api.themoviedb.org/3/search/movie?api_key=6dab14e95b96319c6b9d19d21edcbaaa&query=" + chosenMovie;
+        $(".posterContainer").hide();
+        $(".myText").show();
 
-            $.ajax({
-                url: queryURL,
-                method: "GET"
-            }).then(function (response) {
+        console.log("what's chosen movie" + chosenMovie)
+        var queryURL = "https://api.themoviedb.org/3/search/movie?api_key=6dab14e95b96319c6b9d19d21edcbaaa&query=" + chosenMovie;
 
-                var posterDiv = $("<div class='movie'>");
+        $.ajax({
+            url: queryURL,
+            method: "GET"
+        }).then(function (response) {
 
-                // Retrieving the URL for the image
+            var posterDiv = $("<div class='movie'>");
 
-                var randomImage = response.results[0].poster_path
+            // Retrieving the URL for the image
 
-                var imgURL = "https://image.tmdb.org/t/p/w200" + randomImage;
+            var randomImage = response.results[0].poster_path
 
-                // Creating an element to hold the image
-                var image = $("<img>").attr("src", imgURL);
+            var imgURL = "https://image.tmdb.org/t/p/w200" + randomImage;
 
-                // Appending the image
-                posterDiv.append(image);
-                $("#movie-poster").prepend(posterDiv);
+            // Creating an element to hold the image
+            var image = $("<img>").attr("src", imgURL);
 
-            })
+            // Appending the image
+            posterDiv.append(image);
+            $("#movie-poster").prepend(posterDiv);
 
-   
+        })
+
+
     }
 
     $(".card-image").click(function (event) {
         event.stopPropagation();
+        $(".dbButton").show();
         chosenMovie = $(this).find(".card-title").text();
         console.log(chosenMovie)
         displayChosenMovie();
@@ -80,7 +138,7 @@ $(document).ready(function () {
     displayPosters();
 
 })
-  
+
 
 
 
