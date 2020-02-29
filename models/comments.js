@@ -1,30 +1,23 @@
 module.exports = function(sequelize, DataTypes) {
-    var Comments = sequelize.define("Comments", {
-        body: {
+    var Blog = sequelize.define("movieReviews", {
+        name: {
             type: DataTypes.STRING,
             allowNull: false,
             validate: {
                 len: [1]
             }
         },
-        rating: {
-            type: DataTypes.INT,
+        blog: {
+            type: DataTypes.TEXT,
             allowNull: false,
             validate: {
                 len: [1]
             }
         },
-        // date: {
-        //     type: DataTypes.DATE,
-        //     allowNull: false,
-        // }
+        //   created_at: {
+        //     created_at: Sequelize.DATE,
+        //     allowNull: true,
+        //   }
     });
-
-    Comments.associate = function(models) {
-        Comments.belongsTo(models.Users, {
-            onDelete: "cascade"
-        });
-    };
-
-    return Comments;
+    return Blog;
 };

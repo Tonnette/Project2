@@ -1,5 +1,5 @@
 body {
-    background-color: black;
+    background-color: #191a19;
 }
 
 #movie-poster {
@@ -84,3 +84,12 @@ body {
 
 
 /*star style*/
+
+nav {
+    background-color: #2d2e2d;
+}
+
+.posterContainer {
+    /* margin-left:70px; */
+    text-align: center;
+}
