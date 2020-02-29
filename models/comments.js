@@ -3,21 +3,17 @@ module.exports = function(sequelize, DataTypes) {
       name: {
         type: DataTypes.STRING,
         allowNull: false,
-        validate: {
-          len: [1]
-        }
+        // validate: {
+        //   len: [1]
+        // }
       },
       blog: {
         type: DataTypes.TEXT,
         allowNull: false,
-        validate: {
-          len: [1]
-        }
-      },
-      // created_at: {
-      //   type: DataTypes.STRING,
-      //   allowNull: true,
-      // }
+        // validate: {
+        //   len: [1]
+        // }
+      }
     });
     return Blog;
   };
