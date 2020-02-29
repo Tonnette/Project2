@@ -2,6 +2,7 @@ $(document).ready(function () {
     $(".myform").hide();
     $(".myText").hide();
     $(".dbButton").hide();
+    // $(".blogContainer").hide();
 
 
     $("#add-movie").on("click", function (event) {
@@ -10,7 +11,8 @@ $(document).ready(function () {
 
         $(".myText").show();
         $(".dbButton").show();
-        // displayChosenPosters()
+        $(".blogContainer").show();
+  
 
         chosenMovie = $("#movie-input").val().trim();
         chosenMovie = chosenMovie.replace(/\s/g, "_");
@@ -22,13 +24,14 @@ $(document).ready(function () {
         var newBlog = {
             name: $("#name").val().trim(),
             blog: $(".blog-box").val().trim(),
-            // created_at: moment().format("YYYY-MM-DD HH:mm:ss")
+          
         };
 
         console.log(newBlog);
         // Send an AJAX POST-request with jQuery
 
-        $.post("/api/new", newBlog)
+        $.post("/api/blog", newBlog)
+        // console.log("new blog after post " + newBlog)
             // On success, run the following code
             .then(function () {
                 var row = $("<div>");
@@ -57,7 +60,7 @@ $(document).ready(function () {
       
             row.append("<p>" + data[i].name + " reviewed. </p>");
             row.append("<p>" + data[i].blog + "</p>");
-            row.append("<p>At " + moment(data[i].created_at).format("h:mma on dddd") + "</p>");
+           
       
             $("#blog-area").prepend(row);
       
@@ -126,6 +129,7 @@ $(document).ready(function () {
     $(".card-image").click(function (event) {
         event.stopPropagation();
         $(".dbButton").show();
+        $(".blogContainer").show();
         chosenMovie = $(this).find(".card-title").text();
         console.log(chosenMovie)
         displayChosenMovie();

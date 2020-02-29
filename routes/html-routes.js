@@ -16,9 +16,11 @@ module.exports = function(app) {
     });
 
     // search result list when user clicked search
-    app.get("/new", function(req, res) {
-        res.sendFile(path.join(__dirname, "../public/index.html"));
-    });
+    // app.get("/api/blogs", function(req, res) {
+    //     res.sendFile(path.join(__dirname, "../public/index.html"));
+    // });
+
+ 
 
     // // user profile page
     // app.get("/profile", function(req, res) {
