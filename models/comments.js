@@ -1,5 +1,5 @@
 module.exports = function(sequelize, DataTypes) {
-    var Blog = sequelize.define("movieReviews", {
+    var Blog = sequelize.define("Blog", {
       name: {
         type: DataTypes.STRING,
         allowNull: false,
@@ -14,10 +14,10 @@ module.exports = function(sequelize, DataTypes) {
           len: [1]
         }
       },
-    //   created_at: {
-    //     created_at: Sequelize.DATE,
-    //     allowNull: true,
-    //   }
+      // created_at: {
+      //   type: DataTypes.STRING,
+      //   allowNull: true,
+      // }
     });
     return Blog;
   };

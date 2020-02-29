@@ -14,12 +14,12 @@ module.exports = function(app) {
     app.post("/api/new", function(req, res) {
 
         console.log("blog Data:");
-        console.log(req.body);
+        console.log("what is req.body " + req.body);
     
         db.Blog.create({
           name: req.body.name,
           blog: req.body.blog,
-          created_at: req.body.created_at
+          // created_at: req.body.created_at
         }).then(function(results) {
           // `results` here would be the newly created chirp
           res.end();

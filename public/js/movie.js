@@ -20,9 +20,9 @@ $(document).ready(function () {
     $(".dbButton").on("click", function (event) {
         event.preventDefault();
         var newBlog = {
-            name: $("#author").val().trim(),
-            blog: $("#chirp-box").val().trim(),
-            created_at: moment().format("YYYY-MM-DD HH:mm:ss")
+            name: $("#name").val().trim(),
+            blog: $(".blog-box").val().trim(),
+            // created_at: moment().format("YYYY-MM-DD HH:mm:ss")
         };
 
         console.log(newBlog);
@@ -31,15 +31,12 @@ $(document).ready(function () {
         $.post("/api/new", newBlog)
             // On success, run the following code
             .then(function () {
-
                 var row = $("<div>");
                 row.addClass("blog");
-
                 row.append("<p>" + newBlog.name + " reviewed: </p>");
                 row.append("<p>" + newBlog.blog + "</p>");
-                row.append("<p>At " + moment(newBlog.created_at).format("h:mma on dddd") + "</p>");
-
-                $("#blog-area").prepend(row);
+                // row.append("<p>At " + moment(newBlog.created_at).format("h:mma on dddd") + "</p>");
+                $("#blog-box").prepend(row);
 
             })
 
