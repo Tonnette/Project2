@@ -2,7 +2,7 @@ var db = require("../models");
 
 module.exports = function(app) {
     app.post("/api/blog", function(req, res) {
-        db.comments.create(req.body).then(function(dbComment) {
+        db.Blog.create(req.body).then(function(dbComment) {
             res.json(dbComment);
         });
     });
@@ -53,21 +53,21 @@ module.exports = function(app) {
     });
 
     // Add a blog
-    app.post("/api/blog", function(req, res) {
+    // app.post("/api/blog", function(req, res) {
 
-        console.log("blog Data:");
-        console.log("what is req.body " + req.body);
+    //     console.log("blog Data:");
+    //     console.log("what is req.body " + req.body);
 
-        db.Blog.create({
-            name: req.body.name,
-            blog: req.body.blog,
-            // created_at: req.body.created_at
-        }).then(function(results) {
-            // `results` here would be the newly created chirp
-            res.end();
-        });
+    //     db.Blog.create({
+    //         name: req.body.name,
+    //         blog: req.body.blog,
+    //         // created_at: req.body.created_at
+    //     }).then(function(results) {
+    //         // `results` here would be the newly created chirp
+    //         res.end();
+    //     });
 
-    });
+    // });
 
 
 
