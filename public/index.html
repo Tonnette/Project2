@@ -5,6 +5,7 @@
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0" />
     <title>Movie Review</title>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" />
     <link href="css/materialize.css" type="text/css" rel="stylesheet" media="screen,projection" />
     <link href="./css/placeholder.css" rel="stylesheet">
 </head>
@@ -21,10 +22,10 @@
                     </a>
                     <ul class="right hide-on-med-and-down">
                         <li>
-                            <a href="#home"> Home</a>
+                            <a href="index.html"> Home</a>
                         </li>
                         <li>
-                            <a href="#login"> Login</a>
+                            <a href="#login" class="modal-trigger"> Login</a>
                         </li>
                         <li>
                             <a href="#signup"> Sign up</a>
@@ -38,7 +39,37 @@
         </nav>
     </div>
 
+
+
     <div class="container">
+
+        <!--login modal-->
+        <div id="login" class="modal">
+            <div class="modal-content center">
+                <h4>Login to Post Your Comments</h4>
+                <br>
+
+                <div class="input-field">
+                    <i class="fas fa-user prefix"></i>
+                    <input type="text" id="userName">
+                    <label for="userName">Username</label>
+                </div>
+                <br>
+
+                <div class="input-field ">
+                    <i class="fas fa-lock prefix"></i>
+                    <input type="password" id="pass">
+                    <label for="password">Password</label>
+                </div>
+                <br>
+
+            </div>
+            <div class="modal-footer">
+                <a id="login" class="btn waves-effect waves-light modal-close"> Login</a>
+            </div>
+        </div>
+        <!--login modal end-->
+
         <div class="row">
             <div class="col s12 col md-12">
                 <a href="index.html">
@@ -56,15 +87,13 @@
                         <!-- <input id="add-movie" type="submit" value="Search"> -->
                         <div class="myButton col l12 m12 s12">
                             <button class="btn waves-effect waves-light" id="add-movie" type="submit" name="action">Search</button>
-
-                            <button class="btn waves-effect waves-light" id="add-movie" type="submit" name="action">Search</button>
                         </div>
                     </form>
                 </div>
             </div>
         </div>
 
-        <div row>
+        <div class="row">
             <form class="col s12">
                 <div class="col s4 m4 l4">
                     <div id="movie-poster" class="right" !important>
@@ -186,6 +215,7 @@
             <script src="js/materialize.js"></script>
             <script src="js/init.js"></script>
             <script type="text/javascript" src="./js/movie.js"></script>
+            <script type="text/javascript" src="./js/user.js"></script>
 
 </body>
 

@@ -5,6 +5,7 @@ $(document).ready(function() {
 
     var userMoviesArray = [];
     var starValue;
+    var userId;
 
     $("label").on("click", function() {
         starValue = parseInt(this.id);
@@ -130,6 +131,11 @@ $(document).ready(function() {
     });
 
     displayPosters();
+
+
+    //Login module
+    $('.modal').modal();
+    //Login module end
 
 
     //document.ready root, don't go over this

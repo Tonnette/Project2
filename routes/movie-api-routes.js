@@ -8,11 +8,12 @@ module.exports = function(app) {
     });
 
     // Get all
-    app.get("/api/all", function(req, res) {
+    app.get("/api/user", function(req, res) {
         db.Blog.findAll({}).then(function(results) {
             res.json(results);
         });
     });
+
 
     // Get route for retrieving a single post
     app.get("/api/blog/:id", function(req, res) {
@@ -28,6 +29,21 @@ module.exports = function(app) {
             res.json(result);
         });
     });
+
+    //add new user
+    app.post("/api/user", function(req, res) {
+        db.user.create(req.body).then(function(addUser) {
+            res.json(addUser);
+        });
+    });
+
+    //get all user
+    app.get("/api/user", function(req, res) {
+        db.User.findAll({}).then(function(results) {
+            res.json(results);
+        });
+    });
+
 
     // app.get("/api/new/:id", function(req, res) {
     // Here we add an "include" property to our options in our findOne query
