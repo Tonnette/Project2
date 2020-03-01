@@ -15,6 +15,8 @@ $(document).ready(function() {
                 $.get("/api/user/" + newUser.name, function(data) {
                     $(".userName").attr("value", data.id);
                 });
+            }).catch(function(err) {
+                console.log(err);
             });
     });
 
@@ -30,6 +32,7 @@ $(document).ready(function() {
                 if (data[i].name == verifyUser.name && data[i].password == verifyUser.password) {
                     $(".userPlace").hide();
                     $(".userName").append("<i class=\"fas fa-user\"></i> " + verifyUser.name);
+                    $(".userName").attr("value", data[i].id);
                 }
             }
             var temp = $(".userName").text();
@@ -37,10 +40,10 @@ $(document).ready(function() {
             if (temp == "") {
                 M.toast({ html: 'Login failed! Please login again' });
             }
+        }).catch(function(err) {
+            console.log(err);
         });
     });
-
-
 
 
 
