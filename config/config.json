@@ -1,7 +1,7 @@
 {
     "development": {
         "username": "root",
-        "password": "souths81",
+        "password": "root",
         "database": "moviereview_db",
         "host": "127.0.0.1",
         "port": 3306,
@@ -18,7 +18,7 @@
     "production": {
         "username": "root",
         "password": "souths81",
-        "database":"database_production",
+        "database": "database_production",
         "host": "127.0.0.1",
         "port": 3306,
         "dialect": "mysql"

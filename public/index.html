@@ -55,8 +55,9 @@
                         <!-- Button triggers new movie to be added -->
                         <!-- <input id="add-movie" type="submit" value="Search"> -->
                         <div class="myButton col l12 m12 s12">
-                            <button class="btn waves-effect waves-light" id="add-movie" type="submit"
-                                name="action">Search</button>
+                            <button class="btn waves-effect waves-light" id="add-movie" type="submit" name="action">Search</button>
+
+                            <button class="btn waves-effect waves-light" id="add-movie" type="submit" name="action">Search</button>
                         </div>
                     </form>
                 </div>
@@ -70,9 +71,6 @@
                     </div>
                 </div>
                 <div class="container">
-
-
-
                     <form class="col s12 myform">
                         <div class="input-field col s12 m12 myText">
                             <div>
@@ -83,111 +81,111 @@
                             <div>
                                 <label for="textarea1">Write your review here</label>
                                 <textarea id="textarea1" class="materialize-textarea blog-box"></textarea>
-                                <a class="waves-effect waves-light btn dbButton">Submit</a>
-
+                                <!--star area-->
+                                <div class="rate">
+                                    <input type="radio" id="star5" name="rate" />
+                                    <label for="star5" title="text" id='5'>5 stars</label>
+                                    <input type="radio" id="star4" name="rate" />
+                                    <label for="star4" title="text" id='4'>4 stars</label>
+                                    <input type="radio" id="star3" name="rate" />
+                                    <label for="star3" title="text" id='3'>3 stars</label>
+                                    <input type="radio" id="star2" name="rate" />
+                                    <label for="star2" title="text" id='2'>2 stars</label>
+                                    <input type="radio" id="star1" name="rate" />
+                                    <label for="star1" title="text" id='1'>1 star</label>
+                                </div>
+                                <!--star area-->
+                                <a class="waves-effect waves-light btn dbButton right">Submit</a>
                             </div>
 
                         </div>
                     </form>
                 </div>
             </form>
-
         </div>
-        <div class ="row">
-            <div class="col s12">
-                <div class="container blogContainer">
-                    <div class="row">
-                        <div class="col s12">
-                            <h2>Blogs</h2>
-                            <hr>
-                            <div id="blog-area" class="blogContainer"></div>
-                        </div>
+    </div>
+
+    <div class="row">
+        <div class="col s8">
+            <h2>Blogs</h2>
+            <hr>
+            <div id="blog-area"></div>
+        </div>
+    </div>
+
+    <div class="container posterContainer">
+        <div row>
+            <div class="col s4 m4 l4">
+                <div id="movie-info"></div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col s3">
+                <div class="card kmart" id="card-1">
+                    <div class="card-image">
+                        <img src=""><span class="card-title valign-wrapper center-align"></span>
                     </div>
-    
-    
                 </div>
-    
+            </div>
+            <div class="col s3">
+                <div class="card kmart" id="card-2">
+                    <div class="card-image">
+                        <img src=""><span class="card-title valign-wrapper center-align"></span>
+                    </div>
+                </div>
+            </div>
+            <div class="col s3">
+                <div class="card kmart" id="card-3">
+                    <div class="card-image">
+                        <img src=""><span class="card-title valign-wrapper center-align"></span>
+                    </div>
+                </div>
+            </div>
+            <div class="col s3">
+                <div class="card kmart" id="card-4">
+                    <div class="card-image">
+                        <img src=""><span class="card-title valign-wrapper center-align"></span>
+                    </div>
+                </div>
+            </div>
+            <div class="col s3">
+                <div class="card kmart" id="card-5">
+                    <div class="card-image">
+                        <img src=""><span class="card-title valign-wrapper center-align"></span>
+                    </div>
+                </div>
+            </div>
+            <div class="col s3">
+                <div class="card kmart" id="card-6">
+                    <div class="card-image">
+                        <img src=""><span class="card-title valign-wrapper center-align"></span>
+                    </div>
+                </div>
+            </div>
+            <div class="col s3">
+                <div class="card kmart" id="card-7">
+                    <div class="card-image">
+                        <img src=""><span class="card-title valign-wrapper center-align"></span>
+                    </div>
+                </div>
+            </div>
+            <div class="col s3">
+                <div class="card kmart" id="card-8">
+                    <div class="card-image">
+                        <img src=""><span class="card-title valign-wrapper center-align"></span>
+
+                    </div>
+                </div>
+
             </div>
 
 
-        </div>
-        
 
-
-
-        <div class="container posterContainer">
-            <div row>
-                <div class="col s4 m4 l4">
-                    <div id="movie-info"></div>
-                </div>
-            </div>
-
-            <div class="row">
-                <div class="col s3">
-                    <div class="card kmart" id="card-1">
-                        <div class="card-image">
-                            <img src=""><span class="card-title valign-wrapper center-align"></span>
-                        </div>
-                    </div>
-                </div>
-                <div class="col s3">
-                    <div class="card kmart" id="card-2">
-                        <div class="card-image">
-                            <img src=""><span class="card-title valign-wrapper center-align"></span>
-                        </div>
-                    </div>
-                </div>
-                <div class="col s3">
-                    <div class="card kmart" id="card-3">
-                        <div class="card-image">
-                            <img src=""><span class="card-title valign-wrapper center-align"></span>
-                        </div>
-                    </div>
-                </div>
-                <div class="col s3">
-                    <div class="card kmart" id="card-4">
-                        <div class="card-image">
-                            <img src=""><span class="card-title valign-wrapper center-align"></span>
-                        </div>
-                    </div>
-                </div>
-                <div class="col s3">
-                    <div class="card kmart" id="card-5">
-                        <div class="card-image">
-                            <img src=""><span class="card-title valign-wrapper center-align"></span>
-                        </div>
-                    </div>
-                </div>
-                <div class="col s3">
-                    <div class="card kmart" id="card-6">
-                        <div class="card-image">
-                            <img src=""><span class="card-title valign-wrapper center-align"></span>
-                        </div>
-                    </div>
-                </div>
-                <div class="col s3">
-                    <div class="card kmart" id="card-7">
-                        <div class="card-image">
-                            <img src=""><span class="card-title valign-wrapper center-align"></span>
-                        </div>
-                    </div>
-                </div>
-                <div class="col s3">
-                    <div class="card kmart" id="card-8">
-                        <div class="card-image">
-                            <img src=""><span class="card-title valign-wrapper center-align"></span>
-
-                        </div>
-                    </div>
-
-                </div>
-
-
-
-                <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-                <script src="js/materialize.js"></script>
-                <script src="js/init.js"></script>
-                <script type="text/javascript" src="./js/movie.js"></script>
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+            <script src="js/materialize.js"></script>
+            <script src="js/init.js"></script>
+            <script type="text/javascript" src="./js/movie.js"></script>
 
 </body>
 
