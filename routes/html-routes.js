@@ -16,12 +16,12 @@ module.exports = function(app) {
     });
 
     // search reesult list when user clicked search
-    app.get("/search", function(req, res) {
-        res.sendFile(path.join(__dirname, "../public/working-movie-app-solved.html"));
-        // search result list when user clicked search
-        app.get("/new", function(req, res) {
-            res.sendFile(path.join(__dirname, "../public/index.html"));
-        });
+    // app.get("/search", function(req, res) {
+    //     res.sendFile(path.join(__dirname, "../public/working-movie-app-solved.html"));
+    //     // search result list when user clicked search
+    //     app.get("/new", function(req, res) {
+    //         res.sendFile(path.join(__dirname, "../public/index.html"));
+    //     });
 
         // // user profile page
         // app.get("/profile", function(req, res) {
@@ -32,5 +32,5 @@ module.exports = function(app) {
         // app.get("/movie", function(req, res) {
         //     res.sendFile(path.join(__dirname, "../public/index.html"));
         // });
-    })
+    // })
 }
