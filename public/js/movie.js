@@ -1,11 +1,13 @@
-$(document).ready(function () {
+$(document).ready(function() {
     $(".myform").hide();
     $(".myText").hide();
     $(".dbButton").hide();
 
     var starValue;
+    var chosenMovie;
 
-    $("label").on("click", function () {
+
+    $("label").on("click", function() {
         starValue = parseInt(this.id);
         console.log(starValue);
     });
@@ -15,7 +17,7 @@ $(document).ready(function () {
         $.ajax({
             url: queryURL,
             method: "GET"
-        }).then(function (response) {
+        }).then(function(response) {
 
             for (var i = 9; i > 0; i--) {
                 let cardID = "card-" + (i - 1);
@@ -29,7 +31,7 @@ $(document).ready(function () {
     }
 
 
-    $("#add-movie").on("click", function (event) {
+    $("#add-movie").on("click", function(event) {
         event.preventDefault();
         $(".posterContainer").hide();
         $(".myText").show();
@@ -38,76 +40,61 @@ $(document).ready(function () {
         chosenMovie = $("#movie-input").val().trim();
         chosenMovie = chosenMovie.replace(/\s/g, "_");
         displayChosenMovie();
-        getSearchedBlogs(chosenMovie)
+        getSearchedBlogs();
 
     });
 
 
-
-    $(".dbButton").on("click", function (event) {
+    $(".dbButton").on("click", function(event) {
         event.preventDefault();
         var moviesArray = [];
         var movieId;
 
-        $.get("/api/movie").then(function (data) {
+        $.get("/api/movie").then(function(data) {
+            console.log(data);
             for (var i = 0; i < data.length; i++) {
-                var foundMovie = String(data[i].movie_name).toLowerCase()
-                moviesArray.push(foundMovie)
-
-                if (moviesArray.includes(chosenMovie)) {
-                    console.log("there is another match?")
-
-                    movieId = parseInt(data[i].id)
-                    // console.log(newMovieId)
-                    return movieId
-
+                if (data[i].movie_name == chosenMovie) {
+                    movieId = data[i].id;
                 }
-
-
             }
-            console.log({ movieId })
-
-        }).then(function (movieId) {
+            console.log(movieId);
+        }).then(function() {
             // console.log("whats movie id now? " + movieIdDatabase)
+            var userId = $(".userName").attr("value");
+            var userName = $(".userName").text();
+            console.log(userId);
+            console.log(movieId);
             var newBlog = {
-                name: $("#name").val().trim(),
+                name: userName,
                 blog: $(".blog-box").val().trim(),
                 rating: starValue,
-                MovieId: movieId
-
+                MovieId: movieId,
+                UserId: userId
             };
 
-            console.log({ newBlog })
-            console.log("whats my name? " + JSON.stringify(newBlog.name))
-            var name = JSON.stringify(newBlog.name);
-            var blog = JSON.stringify(newBlog.blog);
-            var rating = JSON.stringify(newBlog.rating);
-
-
+            console.log("whats my name? " + userName)
+            var appendName = userName;
+            var appendBlog = newBlog.blog;
+            var appendRating = newBlog.rating;
 
             var newRow = $("<div>");
             newRow.addClass("blog");
-            newRow.append("<p>" + name + " reviewed " + chosenMovie + "</p>");
-            newRow.append("<p>" + blog + "</p>");
-            newRow.append("<p>" + rating + " star rating! </p>");
+            newRow.append("<p>" + appendName + " reviewed " + chosenMovie + "</p>");
+            newRow.append("<p>" + appendBlog + "</p>");
+            newRow.append("<p>" + appendRating + " star rating! </p>");
             $("#blog-area").prepend(newRow);
-
-
             // console.log("what is newBlog ?" + JSON.stringify(newBlog));
 
             $.post("/api/blog", newBlog)
-                // console.log("new blog after post " + newBlog)
-                // On success, run the following code
-                .then(function () {
+                .then(function() {
+                    $(".blog-box").val("");
+                }).catch(function(err) {
+                    console.log(err);
+                });
 
-
-                })
-
-            $("#name").val("");
-            $(".blog-box").val("");
-
-        })
-
+        }).catch(function(err) {
+            console.log(err);
+        });
 
     })
 
@@ -117,36 +104,34 @@ $(document).ready(function () {
         console.log("marry " + chosenMovie)
         var allMoviesArray = [];
         var newMovieId;
-        $.get("/api/movie").then(function (response) {
-            console.log({ response })
+        $.get("/api/movie").then(function(response) {
+            console.log(response)
             for (var i = 0; i < response.length; i++) {
-                var allMovies = String(response[i].movie_name).toLowerCase()
+                var allMovies = (response[i].movie_name).toLowerCase()
+                console.log(allMovies);
                 // console.log({ allMovies })
                 allMoviesArray.push(allMovies)
-                // console.log({ allMoviesArray })
+                    // console.log({ allMoviesArray })
 
                 if (allMoviesArray.includes(chosenMovie)) {
                     console.log("there is a  match?")
 
-                    newMovieId = parseInt(response[i].id)
-                    console.log(newMovieId)
-                    return newMovieId
-
+                    newMovieId = response[i].id;
                 }
             }
 
-        }).then(function (newMovieId) {
+        }).then(function() {
 
             // When the page loads, grab all of our blogs
-            $.get("/api/movie/" + newMovieId, function (data) {
+            $.get("/api/movie/" + newMovieId, function(data) {
 
-                console.log({ data })
+                console.log(data)
 
                 // if (data.Blogs.length !== 0) {
                 // console.log({ data })
                 for (var i = 0; i < data.Blogs.length; i++) {
                     console.log(data.Blogs.length)
-                    // if (data.Blogs.length !== 0) {
+                        // if (data.Blogs.length !== 0) {
                     var row = $("<div>");
                     row.addClass("blog");
                     row.append("<p>" + data.Blogs[i].name + " reviewed " + chosenMovie + "</p>");
@@ -161,36 +146,33 @@ $(document).ready(function () {
 
                 }
                 // }
+            }).catch(function(err) {
+                console.log(err);
             });
-
-
-        })
-
-
+        }).catch(function(err) {
+            console.log(err);
+        });
     }
 
 
     function getAllBlogs(chosenMovie) {
-        $.get("/api/movie").then(function (data) {
+        $.get("/api/movie").then(function(data) {
             for (var i = 0; i < data.length; i++) {
                 if (chosenMovie == data[i].movie_name) {
                     movieId = data[i].id;
-                    console.log({ movieId })
+                    console.log(movieId)
                     return movieId
-
                 }
             }
-        }).then(function (movieId) {
+        }).then(function(movieId) {
             // When the page loads, grab all of our blogs
-            $.get("/api/movie/" + movieId, function (data) {
-
-                console.log({ data })
-
+            $.get("/api/movie/" + movieId, function(data) {
                 // if (data.length !== 0) {
-                console.log({ data })
+                console.log(data)
                 for (var i = 0; i < data.Blogs.length; i++) {
                     var row = $("<div>");
                     row.addClass("blog");
+
                     row.append("<p>" + data.Blogs[i].name + " reviewed " + chosenMovie + "</p>");
                     row.append("<p>" + data.Blogs[i].blog + "</p>");
                     row.append("<p>" + data.Blogs[i].rating + " star rating! </p>");
@@ -199,18 +181,10 @@ $(document).ready(function () {
                 }
                 // }
             });
-
-
-        })
+        }).catch(function(err) {
+            console.log(err);
+        });
     }
-
-
-
-
-
-
-
-
 
     function displayChosenMovie() {
         $(".posterContainer").hide();
@@ -222,7 +196,7 @@ $(document).ready(function () {
         $.ajax({
             url: queryURL,
             method: "GET"
-        }).then(function (response) {
+        }).then(function(response) {
 
             var posterDiv = $("<div class='movie'>");
             // Retrieving the URL for the image
@@ -239,27 +213,24 @@ $(document).ready(function () {
 
             var chosenMovieJSON = {
                 movie_name: chosenMovieName
-
-
             };
 
             $.post("/api/movie", chosenMovieJSON)
                 // console.log("new blog after post " + newBlog)
                 // On success, run the following code
-                .then(function () {
+                .then(function() {
                     var row = $("<div>");
                     row.addClass("blog");
                     row.append("<p>" + chosenMovieJSON.movie_name + " reviewed: </p>");
                     // row.append("<p>At " + moment(newBlog.created_at).format("h:mma on dddd") + "</p>");
                     $("#blog-box").prepend(row);
-
-                })
+                }).catch(function(err) {
+                    console.log(err);
+                });
         })
-
-
     }
 
-    $(".card-image").click(function (event) {
+    $(".card-image").click(function(event) {
         event.stopPropagation();
         $(".dbButton").show();
         $(".blogContainer").show();
@@ -267,11 +238,14 @@ $(document).ready(function () {
         console.log(chosenMovie)
         displayChosenMovie();
         getAllBlogs(chosenMovie)
-
-
     })
 
     displayPosters();
+
+    //Login module
+    $('.modal').modal();
+    //Login module end
+
 
     //document.ready root, don't go over this
 

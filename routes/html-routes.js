@@ -23,14 +23,14 @@ module.exports = function(app) {
     //         res.sendFile(path.join(__dirname, "../public/index.html"));
     //     });
 
-        // // user profile page
-        // app.get("/profile", function(req, res) {
-        //     res.sendFile(path.join(__dirname, "../public/.html"));
-        // });
+    // // user profile page
+    // app.get("/profile", function(req, res) {
+    //     res.sendFile(path.join(__dirname, "../public/.html"));
+    // });
 
-        // result when user clicked for any movie detail and comment on them
-        // app.get("/movie", function(req, res) {
-        //     res.sendFile(path.join(__dirname, "../public/index.html"));
-        // });
+    // result when user clicked for any movie detail and comment on them
+    // app.get("/movie", function(req, res) {
+    //     res.sendFile(path.join(__dirname, "../public/index.html"));
+    // });
     // })
 }

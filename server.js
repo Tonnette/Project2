@@ -25,10 +25,11 @@ app.use(express.json());
 require("./routes/html-routes.js")(app);
 require("./routes/film-api-routes.js")(app);
 require("./routes/blog-api-routes.js")(app);
+require("./routes/user-api-routes.js")(app);
 
 // Syncing our sequelize models and then starting our express app
 db.sequelize.sync().then(function() {
-  app.listen(PORT, function() {
-    console.log("App listening on PORT " + PORT);
-  });
+    app.listen(PORT, function() {
+        console.log("App listening on PORT " + PORT);
+    });
 });
