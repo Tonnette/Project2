@@ -14,6 +14,11 @@ module.exports = function(sequelize, DataTypes) {
                 len: [1]
             }
         },
+        rating: {
+            type: DataTypes.INTEGER,
+            allowNull: false,
+        }
+
         // created_at: {
         //   type: DataTypes.STRING,
         //   allowNull: true,

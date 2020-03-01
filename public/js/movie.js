@@ -75,7 +75,6 @@ $(document).ready(function() {
     function displayPosters() {
         var queryURL = "https://api.themoviedb.org/3/movie/top_rated?api_key=6dab14e95b96319c6b9d19d21edcbaaa";
 
-
         $.ajax({
             url: queryURL,
             method: "GET"
@@ -119,12 +118,6 @@ $(document).ready(function() {
             posterDiv.append(image);
             $("#movie-poster").prepend(posterDiv);
         });
-    };
-
-
-    function newComment(newCommentData) {
-        $.post("/api/new_comment", newCommentData)
-            .then(getComments);
     };
 
     $(".card-image").click(function(event) {
