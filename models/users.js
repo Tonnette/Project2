@@ -7,14 +7,14 @@ module.exports = function(sequelize, DataTypes) {
                 min: 1
             }
         },
-        // email: {
-        //     type: DataTypes.STRING,
-        //     allowNull: false,
-        //     unique: true,
-        //     validate: {
-        //         isEmail: true
-        //     }
-        // },
+        email: {
+            type: DataTypes.STRING,
+            allowNull: false,
+            unique: true,
+            validate: {
+                isEmail: true
+            }
+        },
         password: {
             type: DataTypes.STRING,
             allowNull: false
@@ -22,7 +22,7 @@ module.exports = function(sequelize, DataTypes) {
     });
 
     Users.associate = function(models) {
-        Users.hasMany(models.Comments, {
+        Users.hasMany(models.Blog, {
             onDelete: "cascade"
         });
     };
