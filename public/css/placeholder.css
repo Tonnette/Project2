@@ -35,10 +35,11 @@ body {
 
 /*star style*/
 
-* {
+
+/* * {
     margin: 0;
     padding: 0;
-}
+} */
 
 .rate {
     float: left;
@@ -96,14 +97,12 @@ nav {
 
 .blogContainer {
     display: none;
-    background-color: white ;
+    background-color: white;
     margin-right: 250px;
     padding: 25px;
-
-        border-width:0.2px;  
-        border-style:solid;
-      
-        border-color:gray;
-        border-top: none;
-        border-radius: 10px;
+    border-width: 0.2px;
+    border-style: solid;
+    border-color: gray;
+    border-top: none;
+    border-radius: 10px;
 }

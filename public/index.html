@@ -57,7 +57,7 @@
                         <div class="myButton col l12 m12 s12">
                             <button class="btn waves-effect waves-light" id="add-movie" type="submit" name="action">Search</button>
 
-                            <button class="btn waves-effect waves-light" id="add-movie" type="submit" name="action">Search</button> >>>>>>> master
+                            <button class="btn waves-effect waves-light" id="add-movie" type="submit" name="action">Search</button>
                         </div>
                     </form>
                 </div>
@@ -71,9 +71,6 @@
                     </div>
                 </div>
                 <div class="container">
-
-
-
                     <form class="col s12 myform">
                         <div class="input-field col s12 m12 myText">
                             <div>
@@ -84,39 +81,29 @@
                             <div>
                                 <label for="textarea1">Write your review here</label>
                                 <textarea id="textarea1" class="materialize-textarea blog-box"></textarea>
-                                <a class="waves-effect waves-light btn dbButton">Submit</a>
-
+                                <!--star area-->
+                                <div class="rate">
+                                    <input type="radio" id="star5" name="rate" />
+                                    <label for="star5" title="text" id='5'>5 stars</label>
+                                    <input type="radio" id="star4" name="rate" />
+                                    <label for="star4" title="text" id='4'>4 stars</label>
+                                    <input type="radio" id="star3" name="rate" />
+                                    <label for="star3" title="text" id='3'>3 stars</label>
+                                    <input type="radio" id="star2" name="rate" />
+                                    <label for="star2" title="text" id='2'>2 stars</label>
+                                    <input type="radio" id="star1" name="rate" />
+                                    <label for="star1" title="text" id='1'>1 star</label>
+                                </div>
+                                <!--star area-->
+                                <a class="waves-effect waves-light btn dbButton right">Submit</a>
                             </div>
 
                         </div>
-
-                    </form> -->
-
-                    <form class="col s8 myform">
-
-                        <div class="input-field col s6 m6 myText">
-
-
-                            <textarea id="textarea1" class="materialize-textarea"></textarea>
-                            <label for="textarea1">Write your review here</label>
-
-                            <!--star area-->
-                            <div class="rate">
-                                <label for="star5" title="text" id='5'>5 stars</label>
-                                <label for="star4" title="text" id='4'>4 stars</label>
-                                <label for="star3" title="text" id='3'>3 stars</label>
-                                <label for="star2" title="text" id='2'>2 stars</label>
-                                <label for="star1" title="text" id='1'>1 star</label>
-                            </div>
-                            <!--star area-->
-                            <a class="waves-effect waves-light btn right" href="/api/new_comment">Sumbit</a>
-                        </div>
-
+                    </form>
                 </div>
-
+            </form>
         </div>
     </div>
-    </form>
 
     <div class="row">
         <div class="col s8">
@@ -125,14 +112,6 @@
             <div id="blog-area"></div>
         </div>
     </div>
-
-    </div>
-
-
-    </div>
-
-
-
 
     <div class="container posterContainer">
         <div row>

@@ -5,27 +5,11 @@ $(document).ready(function() {
 
     var userMoviesArray = [];
     var starValue;
-    var commentInput = $("#textarea1")
 
-    $(".submit").on("click", commentSubmit);
     $("label").on("click", function() {
-        starValue = this.id;
+        starValue = parseInt(this.id);
+        console.log(starValue);
     });
-
-
-    function commentSubmit(event) {
-        event.preventDefault();
-        if (!commentInput.val().trim().trim()) {
-            return;
-        }
-        newComment({
-            comment: commentInput.val(),
-            rating: starValue
-        });
-    };
-
-    // $(".blogContainer").hide();
-
 
     $("#add-movie").on("click", function(event) {
         event.preventDefault();
@@ -46,7 +30,7 @@ $(document).ready(function() {
         var newBlog = {
             name: $("#name").val().trim(),
             blog: $(".blog-box").val().trim(),
-
+            rating: starValue
         };
 
         console.log(newBlog);
@@ -67,10 +51,9 @@ $(document).ready(function() {
 
         // $("#author").val("");
         // $("#chirp-box").val("");
-
     });
 
-    // When the page loads, grab all of our chirps
+    // When the page loads, grab all of our Blogs
     $.get("/api/all", function(data) {
 
         if (data.length !== 0) {
@@ -85,14 +68,9 @@ $(document).ready(function() {
 
 
                 $("#blog-area").prepend(row);
-
             }
-
         }
-
     });
-
-
 
     function displayPosters() {
         var queryURL = "https://api.themoviedb.org/3/movie/top_rated?api_key=6dab14e95b96319c6b9d19d21edcbaaa";
@@ -112,6 +90,34 @@ $(document).ready(function() {
                 $("#" + cardID).find(".card-title").text(response.results[i].title);
                 $("#" + cardID).find(".card-action").attr("href", randomURL);
             };
+        });
+    };
+
+
+    function displayChosenMovie() {
+        $(".posterContainer").hide();
+        $(".myText").show();
+
+        console.log("what's chosen movie" + chosenMovie)
+        var queryURL = "https://api.themoviedb.org/3/search/movie?api_key=6dab14e95b96319c6b9d19d21edcbaaa&query=" + chosenMovie;
+
+        $.ajax({
+            url: queryURL,
+            method: "GET"
+        }).then(function(response) {
+
+            var posterDiv = $("<div class='movie'>");
+
+            // Retrieving the URL for the image
+            var randomImage = response.results[0].poster_path
+            var imgURL = "https://image.tmdb.org/t/p/w200" + randomImage;
+
+            // Creating an element to hold the image
+            var image = $("<img>").attr("src", imgURL);
+
+            // Appending the image
+            posterDiv.append(image);
+            $("#movie-poster").prepend(posterDiv);
         });
     };
 
