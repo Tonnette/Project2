@@ -7,6 +7,7 @@ $(document).ready(function() {
     var starValue;
     var userId;
 
+
     $("label").on("click", function() {
         starValue = parseInt(this.id);
         console.log(starValue);

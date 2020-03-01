@@ -4,7 +4,7 @@ module.exports = function(sequelize, DataTypes) {
             type: DataTypes.STRING,
             allowNull: false,
             validate: {
-                len: [1, 20]
+                min: 1
             }
         },
         // email: {
@@ -23,9 +23,7 @@ module.exports = function(sequelize, DataTypes) {
 
     Users.associate = function(models) {
         Users.hasMany(models.Comments, {
-            foreignKey: {
-                allowNull: false
-            }
+            onDelete: "cascade"
         });
     };
 

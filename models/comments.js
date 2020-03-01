@@ -24,12 +24,12 @@ module.exports = function(sequelize, DataTypes) {
         //   allowNull: true,
         // }
     });
-    Blog.associate = function(models) {
-        Blog.belongsTo(models.User, {
-            foreignKey: {
-                allowNull: false
-            }
-        });
-    };
+    // Blog.associate = function(models) {
+    //     Blog.belongsTo(models.User, {
+    //         foreignKey: {
+    //             allowNull: false
+    //         }
+    //     });
+    // };
     return Blog;
 };
