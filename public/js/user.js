@@ -26,18 +26,14 @@ $(document).ready(function() {
         };
 
         $.get("/api/users", function(data) {
-            console.log(data);
-            console.log(verifyUser);
-            for (var i; i < data.length; i++) {
-                console.log(verifyUser.name + "compare" + data[i].name);
-                console.log(verifyUser.password + "compare" + data[i].password);
-                if (verifyUser.name === data[i].name && verifyUser.password === data[i].password) {
+            for (var i = 0; i < data.length; i++) {
+                if (data[i].name == verifyUser.name && data[i].password == verifyUser.password) {
                     $(".userPlace").hide();
                     $(".userName").append("<i class=\"fas fa-user\"></i> " + verifyUser.name);
                 }
             }
-            var temp = $(".userName").val();
-            console.log("thisis" + temp)
+            var temp = $(".userName").text();
+
             if (temp == "") {
                 M.toast({ html: 'Login failed! Please login again' });
             }

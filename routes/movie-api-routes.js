@@ -17,9 +17,6 @@ module.exports = function(app) {
 
     // Get route for retrieving a single post
     app.get("/api/blog/:id", function(req, res) {
-        // Here we add an "include" property to our options in our findOne query
-        // We set the value to an array of the models we want to include in a left outer join
-        // In this case, just db.Author
         db.Blog.findOne({
             where: {
                 id: req.params.id
@@ -37,13 +34,13 @@ module.exports = function(app) {
         });
     });
 
-    //get all user
+    //get all users
     app.get("/api/users", function(req, res) {
         db.Users.findAll({}).then(function(results) {
             res.json(results);
         });
     });
-
+    //get single user
     app.get("/api/user/:name", function(req, res) {
         db.Users.findOne({
             where: {
