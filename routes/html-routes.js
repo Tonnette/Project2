@@ -5,6 +5,8 @@
 // Dependencies
 // =============================================================
 var path = require("path");
+var isAuthenticated = require("../config/middleware/isAuthenticated");
+
 
 // Routes
 // =============================================================
@@ -15,22 +17,19 @@ module.exports = function(app) {
         res.sendFile(path.join(__dirname, "../public/index.html"));
     });
 
-    // search reesult list when user clicked search
-    // app.get("/search", function(req, res) {
-    //     res.sendFile(path.join(__dirname, "../public/working-movie-app-solved.html"));
-    //     // search result list when user clicked search
-    //     app.get("/new", function(req, res) {
-    //         res.sendFile(path.join(__dirname, "../public/index.html"));
-    //     });
+    app.get("/login", function(req, res) {
+        // If the user already has an account send them to the members page
+        if (req.user) {
+            res.redirect("/members");
+        }
+        res.sendFile(path.join(__dirname, "../public/index.html"));
+    });
 
-    // // user profile page
-    // app.get("/profile", function(req, res) {
-    //     res.sendFile(path.join(__dirname, "../public/.html"));
-    // });
+    // Here we've add our isAuthenticated middleware to this route.
+    // If a user who is not logged in tries to access this route they will be redirected to the signup page
+    app.get("/members", isAuthenticated, function(req, res) {
+        res.sendFile(path.join(__dirname, "../public/members.html"));
+    });
 
-    // result when user clicked for any movie detail and comment on them
-    // app.get("/movie", function(req, res) {
-    //     res.sendFile(path.join(__dirname, "../public/index.html"));
-    // });
-    // })
+
 }
