@@ -4,6 +4,9 @@
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0" />
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link type="text/css" rel="stylesheet" href="css/materialize.min.css"  media="screen,projection"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <title>Movie Review</title>
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" />
     <link href="css/materialize.css" type="text/css" rel="stylesheet" media="screen,projection" />
@@ -14,11 +17,12 @@
 
     <body id="home" class=scrollspy></body>
     <div class="navbar-fixed">
-        <nav class="black">
+        <nav class="teal">
             <div class="container">
                 <div class="nav-wrapper">
+                    <a href="#" class="brand-logo">Movie Reviews</a>
                     <a href="#" data-target="mobile-nav" class="sidenav-trigger">
-                        <i class="material icons">menu</i>
+                        <i class="material-icons">menu</i>
                     </a>
                     <ul class="right hide-on-med-and-down">
                         <li>
@@ -43,6 +47,41 @@
     </div>
 
 
+<!-- Section Slider-->
+<section class="slider">
+    <ul class="slides">
+        <li>
+          <img src="images/image5.jpg"> <!-- random image -->
+          <div class="caption left-align">
+            <h3>Save You Money!</h3>
+            <h5 class="light grey-text text-lighten-3 hide-on-small-only">Spending money on a movie that is not worth watching is frustrating. 
+                For instance, you go to the local cinema to watch a newly released movie only to find it has a poor storyline. 
+                If you have read reviews about the movie before going to the cinema, then you might have saved not only your money but also your energy.</h5>
+          </div>
+        </li>
+        <li>
+          <img src="images/image2.jpeg"> <!-- random image -->
+          <div class="caption center-align">
+            <h3>Can Help You Go Into Detail</h3>
+            <h5 class="light grey-text text-lighten-3 hide-on-small-only">In most cases, critics write movie reviews. 
+                Therefore, you can expect it to be comprehensive. If you’re keen on knowing every detail of a particular movie, 
+                then reading movie reviews is a must. For instance, you will know about the cinematography of the movie. Moreover, 
+                you will have an idea of whether or not the film was exaggerated to the extent that it is no longer realistic..</h5>
+          </div>
+        </li>
+        <li>
+          <img src="images/image4.jpg"> <!-- random image -->
+          <div class="caption right-align">
+            <h3>Gives You a Glimpse About the Movie</h3>
+            <h5 class="light grey-text text-lighten-3 hide-on-small-only">For starters, the most significant advantage of checking out movie reviews is 
+                that they give you an idea about the movie. This allows you to decide whether to watch the movie or not. For instance, 
+                if you discovered a movie that you have not heard in the past, then movie reviews will give you an idea about how the movie goes. 
+                Therefore, you can figure out whether or not that movie is worth watching..</h5>
+          </div>
+        </li>
+      </ul>
+
+</section>
 
     <div class="container">
 
@@ -121,7 +160,8 @@
                         <!-- Button triggers new movie to be added -->
                         <!-- <input id="add-movie" type="submit" value="Search"> -->
                         <div class="myButton col l12 m12 s12">
-                            <button class="btn waves-effect waves-light" id="add-movie" type="submit" name="action">Search</button>
+                            <button class="btn waves-effect waves-light" id="add-movie" type="submit"
+                                name="action">Search</button>
                         </div>
                     </form>
                 </div>
@@ -186,62 +226,62 @@
 
     <div class="container posterContainer">
         <div row>
-            <div class="col s8 m4 l2">
+            <div class="col s8 m4 l3">
                 <div id="movie-info"></div>
             </div>
         </div>
 
         <div class="row">
-            <div class="col s8 m4 l2">
+            <div class="col s8 m4 l3">
                 <div class="card kmart" id="card-1">
                     <div class="card-image">
                         <img src=""><span class="card-title valign-wrapper center-align"></span>
                     </div>
                 </div>
             </div>
-            <div class="col s8 m4 l2">
+            <div class="col s8 m4 l3">
                 <div class="card kmart" id="card-2">
                     <div class="card-image">
                         <img src=""><span class="card-title valign-wrapper center-align"></span>
                     </div>
                 </div>
             </div>
-            <div class="col s8 m4 l2">
+            <div class="col s8 m4 l3">
                 <div class="card kmart" id="card-3">
                     <div class="card-image">
                         <img src=""><span class="card-title valign-wrapper center-align"></span>
                     </div>
                 </div>
             </div>
-            <div class="col s8 m4 l2">
+            <div class="col s8 m4 l3">
                 <div class="card kmart" id="card-4">
                     <div class="card-image">
                         <img src=""><span class="card-title valign-wrapper center-align"></span>
                     </div>
                 </div>
             </div>
-            <div class="col s8 m4 l2">
+            <div class="col s8 m4 l3">
                 <div class="card kmart" id="card-5">
                     <div class="card-image">
                         <img src=""><span class="card-title valign-wrapper center-align"></span>
                     </div>
                 </div>
             </div>
-            <div class="col s8 m4 l2">
+            <div class="col s8 m4 l3">
                 <div class="card kmart" id="card-6">
                     <div class="card-image">
                         <img src=""><span class="card-title valign-wrapper center-align"></span>
                     </div>
                 </div>
             </div>
-            <div class="col s8 m4 l2">
+            <div class="col s8 m4 l3">
                 <div class="card kmart" id="card-7">
                     <div class="card-image">
                         <img src=""><span class="card-title valign-wrapper center-align"></span>
                     </div>
                 </div>
             </div>
-            <div class="col s8 m4 l2">
+            <div class="col s8 m4 l3">
                 <div class="card kmart" id="card-8">
                     <div class="card-image">
                         <img src=""><span class="card-title valign-wrapper center-align"></span>
@@ -258,6 +298,22 @@
             <script src="js/init.js"></script>
             <script type="text/javascript" src="./js/movie.js"></script>
             <script type="text/javascript" src="./js/user.js"></script>
+            <script type="text/javascript" src="js/materialize.min.js"></script>
+<script>
+    // Sidenav
+    const sideNav = document.querySelector('.sidenav');
+    M.Sidenav.init(sideNav, {});
+
+    //Slider
+    const slider = document.querySelector('.slider');
+    M.Slider.init(slider, {
+        indicators: false,
+        height: 500,
+        transition: 500,
+        interval: 7000
+    });
+
+</script>
 
 </body>
 
