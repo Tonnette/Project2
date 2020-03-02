@@ -5,6 +5,7 @@ $(document).ready(function() {
 
     var starValue;
     var chosenMovie;
+    var movieId;
 
 
     $("label").on("click", function() {
@@ -37,18 +38,15 @@ $(document).ready(function() {
         $(".myText").show();
         $(".dbButton").show();
         $(".blogContainer").show();
-        chosenMovie = $("#movie-input").val().trim();
-        chosenMovie = chosenMovie.replace(/\s/g, "_");
-        displayChosenMovie();
-        getSearchedBlogs();
+        chosenMovie = $("#movie-input").val().trim().toLowerCase();
+        console.log(chosenMovie);
 
+        displayChosenMovie(getSearchedBlogs);
     });
 
 
     $(".dbButton").on("click", function(event) {
         event.preventDefault();
-        var moviesArray = [];
-        var movieId;
 
         $.get("/api/movie").then(function(data) {
             console.log(data);
@@ -100,35 +98,27 @@ $(document).ready(function() {
 
 
 
-    function getSearchedBlogs(chosenMovie) {
-        console.log("marry " + chosenMovie)
-        var allMoviesArray = [];
+    function getSearchedBlogs() {
         var newMovieId;
-        $.get("/api/movie").then(function(response) {
-            console.log(response)
-            for (var i = 0; i < response.length; i++) {
-                var allMovies = (response[i].movie_name).toLowerCase()
-                console.log(allMovies);
-                // console.log({ allMovies })
-                allMoviesArray.push(allMovies)
-                    // console.log({ allMoviesArray })
+        $.get("/api/movie").then(function(res) {
+            console.log(res);
+            console.log(chosenMovie);
+            for (var i = 0; i < res.length; i++) {
+                var compareName = res[i].movie_name;
 
-                if (allMoviesArray.includes(chosenMovie)) {
-                    console.log("there is a  match?")
-
-                    newMovieId = response[i].id;
+                if (compareName == chosenMovie) {
+                    console.log("there is a match")
+                    newMovieId = res[i].id;
                 }
             }
-
+            console.log(newMovieId)
         }).then(function() {
-
             // When the page loads, grab all of our blogs
             $.get("/api/movie/" + newMovieId, function(data) {
 
                 console.log(data)
-
-                // if (data.Blogs.length !== 0) {
-                // console.log({ data })
+                    // if (data.Blogs.length !== 0) {
+                    // console.log({ data })
                 for (var i = 0; i < data.Blogs.length; i++) {
                     console.log(data.Blogs.length)
                         // if (data.Blogs.length !== 0) {
@@ -140,12 +130,8 @@ $(document).ready(function() {
 
                     $("#blog-area").prepend(row);
 
-                    // } else {
-                    //     break;
-                    // }
-
+                    movieId = newMovieId;
                 }
-                // }
             }).catch(function(err) {
                 console.log(err);
             });
@@ -155,7 +141,7 @@ $(document).ready(function() {
     }
 
 
-    function getAllBlogs(chosenMovie) {
+    function getAllBlogs() {
         $.get("/api/movie").then(function(data) {
             for (var i = 0; i < data.length; i++) {
                 if (chosenMovie == data[i].movie_name) {
@@ -186,7 +172,7 @@ $(document).ready(function() {
         });
     }
 
-    function displayChosenMovie() {
+    function displayChosenMovie(thenFunction) {
         $(".posterContainer").hide();
         $(".myText").show();
 
@@ -201,8 +187,8 @@ $(document).ready(function() {
             var posterDiv = $("<div class='movie'>");
             // Retrieving the URL for the image
             var choseMovieImage = response.results[0].poster_path;
-
             var chosenMovieName = response.results[0].title;
+            chosenMovie = response.results[0].title;
             console.log("what's chosen movie? " + chosenMovieName)
             var imgURL = "https://image.tmdb.org/t/p/w200" + choseMovieImage;
             // Creating an element to hold the image
@@ -227,7 +213,7 @@ $(document).ready(function() {
                 }).catch(function(err) {
                     console.log(err);
                 });
-        })
+        }).then(thenFunction)
     }
 
     $(".card-image").click(function(event) {
@@ -236,8 +222,8 @@ $(document).ready(function() {
         $(".blogContainer").show();
         chosenMovie = $(this).find(".card-title").text();
         console.log(chosenMovie)
-        displayChosenMovie();
-        getAllBlogs(chosenMovie)
+        displayChosenMovie(getAllBlogs);
+        // getAllBlogs();
     })
 
     displayPosters();
