@@ -196,6 +196,7 @@ $(document).ready(function() {
             var image = $("<img>").attr("src", imgURL);
             // Appending the image
             posterDiv.append(image);
+            $("#movie-poster").empty();
             $("#movie-poster").prepend(posterDiv);
 
             var chosenMovieJSON = {
