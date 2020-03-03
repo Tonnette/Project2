@@ -17,14 +17,10 @@ $(document).ready(function() {
 
     function signUpUser(newUser) {
         $.post("/api/signup", newUser)
-            .then(function() {
-                $(".userPlace").hide();
-                $(".userName").append("<i class=\"fas fa-user\"></i> " + newUser.name);
-
-                $.get("/api/signup/" + newUser.email, function(data) {
-                    $(".userName").attr("value", data.id);
-                });
-            }).catch(handleLoginErr);
+            .then(function(newUser) {
+                window.location.replace("/members");
+            })
+            .catch(handleLoginErr);
     };
 
     function handleLoginErr(err) {

@@ -119,6 +119,7 @@ $(document).ready(function() {
                 console.log(data)
                     // if (data.Blogs.length !== 0) {
                     // console.log({ data })
+                $("#blog-area").empty();
                 for (var i = 0; i < data.Blogs.length; i++) {
                     console.log(data.Blogs.length)
                         // if (data.Blogs.length !== 0) {
