@@ -1,4 +1,8 @@
 $(document).ready(function() {
+
+
+
+
     var verifyUserArr;
     $("#signUpBtn").on("click", function(event) {
         event.preventDefault();
@@ -20,7 +24,8 @@ $(document).ready(function() {
             .then(function() {
                 $(".userPlace").hide();
                 $(".userName").append("<i class=\"fas fa-user\"></i> " + newUser.name);
-
+                window.location.replace("/members");
+                
                 $.get("/api/signup/" + newUser.email, function(data) {
                     $(".userName").attr("value", data.id);
                 });
@@ -28,8 +33,8 @@ $(document).ready(function() {
     };
 
     function handleLoginErr(err) {
-        $("#alert .msg").text(err.responseJSON);
-        $("#alert").fadeIn(500);
+        alert("error");
+        // $("#alert").fadeIn(500);
     };
 
     $("#loginBtn").on("click", function(event) {
@@ -51,10 +56,15 @@ $(document).ready(function() {
             .then(function(verifyUser) {
                 window.location.replace("/members");
             })
-            .catch(function(err) {
-                console.log(err);
-            });
-    }
+            .catch(handleLoginErr);
+        };
+    
+        function handleLoginErr(err) {
+            alert("error");
+            // $("#alert").fadeIn(500);
+        };
+    
+    
 
 
     // /member/:id
