@@ -1,4 +1,8 @@
 $(document).ready(function() {
+
+
+
+
     var verifyUserArr;
     $("#signUpBtn").on("click", function(event) {
         event.preventDefault();
@@ -18,18 +22,19 @@ $(document).ready(function() {
     function signUpUser(newUser) {
         $.post("/api/signup", newUser)
             .then(function() {
-                $(".userPlace").hide();
+                $(".userSign").hide();
                 $(".userName").append("<i class=\"fas fa-user\"></i> " + newUser.name);
+                // alert("you are now signed up. Please now login")
+                M.toast({html: 'you are now signed up. Please now login'})
 
                 $.get("/api/signup/" + newUser.email, function(data) {
                     $(".userName").attr("value", data.id);
                 });
-            }).catch(handleLoginErr);
+            }).catch(userSignErr);
     };
 
-    function handleLoginErr(err) {
-        $("#alert .msg").text(err.responseJSON);
-        $("#alert").fadeIn(500);
+    function userSignErr(err) {
+        M.toast({html: 'user already signed up. Please log in'})
     };
 
     $("#loginBtn").on("click", function(event) {
@@ -51,10 +56,14 @@ $(document).ready(function() {
             .then(function(verifyUser) {
                 window.location.replace("/members");
             })
-            .catch(function(err) {
-                console.log(err);
-            });
-    }
+            .catch(handleLoginErr);
+        };
+    
+        function handleLoginErr(err) {
+            M.toast({html: 'incorrect user name or password'})
+        };
+    
+    
 
 
     // /member/:id
