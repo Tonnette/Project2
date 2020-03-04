@@ -22,19 +22,19 @@ $(document).ready(function() {
     function signUpUser(newUser) {
         $.post("/api/signup", newUser)
             .then(function() {
-                $(".userPlace").hide();
+                $(".userSign").hide();
                 $(".userName").append("<i class=\"fas fa-user\"></i> " + newUser.name);
-                window.location.replace("/members");
-                
+                // alert("you are now signed up. Please now login")
+                M.toast({html: 'you are now signed up. Please now login'})
+
                 $.get("/api/signup/" + newUser.email, function(data) {
                     $(".userName").attr("value", data.id);
                 });
-            }).catch(handleLoginErr);
+            }).catch(userSignErr);
     };
 
-    function handleLoginErr(err) {
-        alert("error");
-        // $("#alert").fadeIn(500);
+    function userSignErr(err) {
+        M.toast({html: 'user already signed up. Please log in'})
     };
 
     $("#loginBtn").on("click", function(event) {
@@ -60,8 +60,7 @@ $(document).ready(function() {
         };
     
         function handleLoginErr(err) {
-            alert("error");
-            // $("#alert").fadeIn(500);
+            M.toast({html: 'incorrect user name or password'})
         };
     
     
