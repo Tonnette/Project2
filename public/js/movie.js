@@ -77,7 +77,7 @@ $(document).ready(function() {
 
             var newRow = $("<div>");
             newRow.addClass("blog");
-            newRow.append("<p>" + appendName + " reviewed " + chosenMovie + "</p>");
+            newRow.append("<p class= \"col s4\">" + appendName + " reviewed " + chosenMovie + "</p>");
             newRow.append("<p>" + appendBlog + "</p>");
             newRow.append("<p>" + appendRating + " star rating! </p>");
             $("#blog-area").prepend(newRow);
