@@ -15,6 +15,22 @@ $(document).ready(function() {
         if (!newUser.email || !newUser.password) {
             return;
         }
+
+
+      var passw = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{6,20}$/;
+      if (newUser.password.match(passw)) {
+    
+
+      }
+      else {
+        M.toast({
+            html: "Password must be btw 6 - 20 characters which contain at least one numeric digit, one uppercase and one lowercase letter",
+            classes: 'passwordToast', 
+            displayLength: 10000,
+
+        })
+        return false;
+      }
         signUpUser(newUser);
 
     });

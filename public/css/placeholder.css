@@ -19,6 +19,22 @@ body {
     text-align: center !important;
 }
 
+.successToast {
+    background-color:#05a322 !important;
+    color: black;
+    font-weight: 300;
+    font-size: larger;
+    text-align: center !important;
+}
+
+.passwordToast {
+    background-color: #ffa200 !important;
+    color: black;
+    font-weight: 400;
+    font-size: larger;
+    text-align: center !important;
+}
+
 .myText {
     background-color: white;
     margin-right: 250px;
