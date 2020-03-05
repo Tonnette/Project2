@@ -24,8 +24,16 @@ $(document).ready(function() {
             .then(function() {
                 $(".userSign").hide();
                 $(".userName").append("<i class=\"fas fa-user\"></i> " + newUser.name);
-                // alert("you are now signed up. Please now login")
-                M.toast({html: 'you are now signed up. Please now login'})
+
+                M.toast({
+                    html: '*****    You are now signed up. Please log in! *****',
+                    classes: 'myToast', 
+                    displayLength: 10000,
+    
+                })
+                
+                // $("#alert .msg").text("You are now signed up. Please log in!");
+                // $("#alert").fadeIn(500);
 
                 $.get("/api/signup/" + newUser.email, function(data) {
                     $(".userName").attr("value", data.id);
@@ -34,7 +42,7 @@ $(document).ready(function() {
     };
 
     function userSignErr(err) {
-        M.toast({html: 'user already signed up. Please log in'})
+        M.toast({html: 'You are already a member. Please log in'})
     };
 
     $("#loginBtn").on("click", function(event) {

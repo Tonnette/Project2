@@ -11,6 +11,14 @@ body {
     background-color: white;
 }
 
+.myToast {
+    background-color: #DC143C !important;
+    color: black;
+    font-weight: 700;
+    font-size: larger;
+    text-align: center !important;
+}
+
 .myText {
     background-color: white;
     margin-right: 250px;
@@ -92,13 +100,13 @@ nav {
 .blogContainer {
     display: none;
     background-color: white;
-    margin-right: 250px;
-    padding: 25px;
-    border-width: 0.2px;
+    /* margin-right: 250px; */
+    /* padding: 25px; */
+    /* border-width: 0.2px;
     border-style: solid;
-    border-color: gray;
-    border-top: none;
-    border-radius: 10px;
+    border-color: gray; */
+    /* border-top: none; */
+    /* border-radius: 10px; */
 }
 
 
