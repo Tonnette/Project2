@@ -12,6 +12,22 @@ $(document).ready(function() {
         if (!newUser.email || !newUser.password) {
             return;
         }
+
+
+      var passw = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{6,20}$/;
+      if (newUser.password.match(passw)) {
+    
+
+      }
+      else {
+        M.toast({
+            html: "Password must be btw 6 - 20 characters which contain at least one numeric digit, one uppercase and one lowercase letter",
+            classes: 'passwordToast', 
+            displayLength: 10000,
+
+        })
+        return false;
+      }
         signUpUser(newUser);
 
     });
@@ -21,8 +37,21 @@ $(document).ready(function() {
             .then(function() {
                 $(".userSign").hide();
                 $(".userName").append("<i class=\"fas fa-user\"></i> " + newUser.name);
+<<<<<<< HEAD
                 // alert("you are now signed up. Please now login")
                 M.toast({ html: 'you are now signed up. Please now login' })
+=======
+
+                M.toast({
+                    html: '*****    You are now signed up. Please log in! *****',
+                    classes: 'myToast', 
+                    displayLength: 10000,
+    
+                })
+                
+                // $("#alert .msg").text("You are now signed up. Please log in!");
+                // $("#alert").fadeIn(500);
+>>>>>>> master
 
                 $.get("/api/signup/" + newUser.email, function(data) {
                     $(".userName").attr("value", data.id);
@@ -31,7 +60,11 @@ $(document).ready(function() {
     };
 
     function userSignErr(err) {
+<<<<<<< HEAD
         M.toast({ html: 'user already signed up. Please log in' })
+=======
+        M.toast({html: 'You are already a member. Please log in'})
+>>>>>>> master
     };
 
     $("#loginBtn").on("click", function(event) {
