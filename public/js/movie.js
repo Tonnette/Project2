@@ -1,14 +1,15 @@
-$(document).ready(function() {
+$(document).ready(function () {
     $(".myform").hide();
     $(".myText").hide();
     $(".dbButton").hide();
 
+    var blogContainer = $(".reviewContainer");
     var starValue;
     var chosenMovie;
     var movieId;
 
 
-    $("label").on("click", function() {
+    $("label").on("click", function () {
         starValue = parseInt(this.id);
         console.log(starValue);
     });
@@ -18,7 +19,7 @@ $(document).ready(function() {
         $.ajax({
             url: queryURL,
             method: "GET"
-        }).then(function(response) {
+        }).then(function (response) {
 
             for (var i = 9; i > 0; i--) {
                 let cardID = "card-" + (i - 1);
@@ -32,12 +33,13 @@ $(document).ready(function() {
     }
 
 
-    $("#add-movie").on("click", function(event) {
+    $("#add-movie").on("click", function (event) {
         event.preventDefault();
         $(".posterContainer").hide();
         $(".myText").show();
         $(".dbButton").show();
         $(".blogContainer").show();
+        $(".reviewContainer").show();
         chosenMovie = $("#movie-input").val().trim().toLowerCase();
         console.log(chosenMovie);
 
@@ -45,10 +47,10 @@ $(document).ready(function() {
     });
 
 
-    $(".dbButton").on("click", function(event) {
+    $(".dbButton").on("click", function (event) {
         event.preventDefault();
 
-        $.get("/api/movie").then(function(data) {
+        $.get("/api/movie").then(function (data) {
             console.log(data);
             for (var i = 0; i < data.length; i++) {
                 if (data[i].movie_name == chosenMovie) {
@@ -56,7 +58,7 @@ $(document).ready(function() {
                 }
             }
             console.log(movieId);
-        }).then(function() {
+        }).then(function () {
             // console.log("whats movie id now? " + movieIdDatabase)
             var userId = $(".userName").attr("value");
             var userName = $(".userName").text();
@@ -84,13 +86,13 @@ $(document).ready(function() {
             // console.log("what is newBlog ?" + JSON.stringify(newBlog));
 
             $.post("/api/blog", newBlog)
-                .then(function() {
+                .then(function () {
                     $(".blog-box").val("");
-                }).catch(function(err) {
+                }).catch(function (err) {
                     console.log(err);
                 });
 
-        }).catch(function(err) {
+        }).catch(function (err) {
             console.log(err);
         });
 
@@ -100,7 +102,7 @@ $(document).ready(function() {
 
     function getSearchedBlogs() {
         var newMovieId;
-        $.get("/api/movie").then(function(res) {
+        $.get("/api/movie").then(function (res) {
             console.log(res);
             console.log(chosenMovie);
             for (var i = 0; i < res.length; i++) {
@@ -112,37 +114,51 @@ $(document).ready(function() {
                 }
             }
             console.log(newMovieId)
-        }).then(function() {
+        }).then(function () {
             // When the page loads, grab all of our blogs
-            $.get("/api/movie/" + newMovieId, function(data) {
+            $.get("/api/movie/" + newMovieId, function (data) {
 
-                console.log(data)
-                    // if (data.Blogs.length !== 0) {
-                    // console.log({ data })
-                for (var i = 0; i < data.Blogs.length; i++) {
-                    console.log(data.Blogs.length)
-                        // if (data.Blogs.length !== 0) {
-                    var row = $("<div>");
-                    row.addClass("blog");
-                    row.append("<p>" + data.Blogs[i].name + " reviewed " + chosenMovie + "</p>");
-                    row.append("<p>" + data.Blogs[i].blog + "</p>");
-                    row.append("<p>" + data.Blogs[i].rating + " star rating! </p>");
+                whatLength = data.Blogs.length;
+                console.log(whatLength)
 
-                    $("#blog-area").prepend(row);
+                if (whatLength == 0) {
+                    console.log("no blogs")
+                    $("#blog-area").prepend("no reviews yet. Please sign up/login to be the first to review this film");
+                } else {
 
-                    movieId = newMovieId;
+                    for (var i = 0; i < data.Blogs.length; i++) {
+                        console.log(data.Blogs.length)
+                        $("#blog-area").prepend("no blogs");
+                        var row = $("<div>");
+                        row.addClass("blog");
+                        row.append("<p>Please sign up/login if you would like to review this film</p>");
+                        row.append("<p>" + data.Blogs[i].name + " reviewed " + chosenMovie + "</p>");
+                        row.append("<p>" + data.Blogs[i].blog + "</p>");
+                        row.append("<p>" + data.Blogs[i].rating + " star rating! </p>");
+
+                        $("#blog-area").prepend(row);
+
+                        movieId = newMovieId;
+                    }
                 }
-            }).catch(function(err) {
+            }).catch(function (err) {
                 console.log(err);
             });
-        }).catch(function(err) {
+        }).catch(function (err) {
             console.log(err);
         });
+
+
+
+
+
     }
+    // if (data.Blogs.length !== 0) {
+
 
 
     function getAllBlogs() {
-        $.get("/api/movie").then(function(data) {
+        $.get("/api/movie").then(function (data) {
             for (var i = 0; i < data.length; i++) {
                 if (chosenMovie == data[i].movie_name) {
                     movieId = data[i].id;
@@ -150,31 +166,60 @@ $(document).ready(function() {
                     return movieId
                 }
             }
-        }).then(function(movieId) {
+        }).then(function (movieId) {
             // When the page loads, grab all of our blogs
-            $.get("/api/movie/" + movieId, function(data) {
+            $.get("/api/movie/" + movieId, function (data) {
                 // if (data.length !== 0) {
-                console.log(data)
-                for (var i = 0; i < data.Blogs.length; i++) {
-                    var row = $("<div>");
-                    row.addClass("blog");
+                console.log({ data })
+                whatLength = data.Blogs.length;
+                console.log(whatLength)
 
-                    row.append("<p>" + data.Blogs[i].name + " reviewed " + chosenMovie + "</p>");
-                    row.append("<p>" + data.Blogs[i].blog + "</p>");
-                    row.append("<p>" + data.Blogs[i].rating + " star rating! </p>");
+                if (whatLength == 0) {
+                    console.log("no blogs")
+                    $("#blog-area").prepend("no reviews yet. Please sign up/login to be the first to review this film");
+                } else {
+                    for (var i = 0; i < data.Blogs.length; i++) {
+                        posts = data;
+                        var row = $("<div>");
+                        row.addClass("blog");
+                        row.append("<p>Please sign up/login if you would like to review this film</p>");
+                        row.append("<p>" + data.Blogs[i].name + " reviewed " + chosenMovie + "</p>");
+                        row.append("<p>" + data.Blogs[i].blog + "</p>");
+                        row.append("<p>" + data.Blogs[i].rating + " star rating! </p>");
 
-                    $("#blog-area").prepend(row);
+                        $("#blog-area").prepend(row);
+                    }
                 }
-                // }
-            });
-        }).catch(function(err) {
+
+            })
+        }).catch(function (err) {
             console.log(err);
         });
     }
 
+    // function displayEmpty(id) {
+    //     console.log({ id })
+    //     var query = window.location.search;
+    //     var partial = "";
+    //     if (id) {
+    //         partial = " for Author #" + id;
+    //     }
+    //     blogContainer.empty();
+    //     var messageH2 = $("<h2>");
+    //     messageH2.css({ "text-align": "center", "margin-top": "50px" });
+    //     messageH2.html("No posts yet" + partial + ", navigate <a href='/cms" + query +
+    //         "'>here</a> in order to get started.");
+    //     blogContainer.append(messageH2);
+    // }
+
+
+
+
+
     function displayChosenMovie(thenFunction) {
         $(".posterContainer").hide();
         $(".myText").show();
+        $("#movie-poster").empty();
 
         console.log("what's chosen movie" + chosenMovie)
         var queryURL = "https://api.themoviedb.org/3/search/movie?api_key=6dab14e95b96319c6b9d19d21edcbaaa&query=" + chosenMovie;
@@ -182,7 +227,7 @@ $(document).ready(function() {
         $.ajax({
             url: queryURL,
             method: "GET"
-        }).then(function(response) {
+        }).then(function (response) {
 
             var posterDiv = $("<div class='movie'>");
             // Retrieving the URL for the image
@@ -204,27 +249,30 @@ $(document).ready(function() {
             $.post("/api/movie", chosenMovieJSON)
                 // console.log("new blog after post " + newBlog)
                 // On success, run the following code
-                .then(function() {
+                .then(function () {
                     var row = $("<div>");
                     row.addClass("blog");
                     row.append("<p>" + chosenMovieJSON.movie_name + " reviewed: </p>");
                     // row.append("<p>At " + moment(newBlog.created_at).format("h:mma on dddd") + "</p>");
                     $("#blog-box").prepend(row);
-                }).catch(function(err) {
+                }).catch(function (err) {
                     console.log(err);
                 });
         }).then(thenFunction)
     }
 
-    $(".card-image").click(function(event) {
+    $(".card-image").click(function (event) {
         event.stopPropagation();
         $(".dbButton").show();
         $(".blogContainer").show();
+        $(".reviewContainer").show();
         chosenMovie = $(this).find(".card-title").text();
         console.log(chosenMovie)
         displayChosenMovie(getAllBlogs);
         // getAllBlogs();
     })
+
+
 
     displayPosters();
 
