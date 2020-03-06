@@ -11,7 +11,7 @@ $(document).ready(function() {
 
     function getAllBlogs() {
         $(".blogBox").empty();
-        $(".blogBox").append(`<h4>Manage your commits!</h4>
+        $(".blogBox").append(`<h4>Manage your reviews!</h4>
         <table class="highlight">
             <thead>
                 <tr>
@@ -26,10 +26,15 @@ $(document).ready(function() {
 
         console.log(userId);
         $.get("/api/user_blogs/" + userId, function(res) {
+
+            $(".slider").hide();
+            $(".searchDiv").hide();
+            $(".reviewContainer").hide();
+            $(".poster").hide();
             console.log("trying");
             console.log(res);
             if (res.length == 0) {
-                $(".blogEdit").append("<h5>No blog added</h5>");
+                $(".blogEdit").append("<h5>No reviews added</h5>");
             }
             for (var i = 0; i < res.length; i++) {
                 //append blogs into table
