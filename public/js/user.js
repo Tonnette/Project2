@@ -1,4 +1,5 @@
 $(document).ready(function() {
+
     var verifyUserArr;
     $("#signUpBtn").on("click", function(event) {
         event.preventDefault();
@@ -11,6 +12,21 @@ $(document).ready(function() {
         if (!newUser.email || !newUser.password) {
             return;
         }
+
+
+        var passw = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{6,20}$/;
+        if (newUser.password.match(passw)) {
+
+
+        } else {
+            M.toast({
+                html: "Password must be btw 6 - 20 characters which contain at least one numeric digit, one uppercase and one lowercase letter",
+                classes: 'passwordToast',
+                displayLength: 10000,
+
+            })
+            return false;
+        }
         signUpUser(newUser);
 
     });
@@ -18,18 +34,28 @@ $(document).ready(function() {
     function signUpUser(newUser) {
         $.post("/api/signup", newUser)
             .then(function() {
-                $(".userPlace").hide();
+                $(".userSign").hide();
                 $(".userName").append("<i class=\"fas fa-user\"></i> " + newUser.name);
+
+                M.toast({
+                    html: '*****    You are now signed up. Please log in! *****',
+                    classes: 'myToast',
+                    displayLength: 10000,
+
+                })
+
+                // $("#alert .msg").text("You are now signed up. Please log in!");
+                // $("#alert").fadeIn(500);
 
                 $.get("/api/signup/" + newUser.email, function(data) {
                     $(".userName").attr("value", data.id);
                 });
-            }).catch(handleLoginErr);
+            }).catch(userSignErr);
     };
 
-    function handleLoginErr(err) {
-        $("#alert .msg").text(err.responseJSON);
-        $("#alert").fadeIn(500);
+    function userSignErr(err) {
+
+        M.toast({ html: 'You are already a member. Please log in' })
     };
 
     $("#loginBtn").on("click", function(event) {
@@ -51,10 +77,17 @@ $(document).ready(function() {
             .then(function(verifyUser) {
                 window.location.replace("/members");
             })
-            .catch(function(err) {
-                console.log(err);
-            });
-    }
+            .catch(handleLoginErr);
+    };
+
+    function handleLoginErr(err) {
+        M.toast({ html: 'incorrect user name or password' })
+    };
+
+
+
+
+
 
 
     // /member/:id
