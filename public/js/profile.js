@@ -35,6 +35,7 @@ $(document).ready(function() {
             $(".searchDiv").hide();
             $(".reviewContainer").hide();
             $(".poster").hide();
+            console.log(userId);
             console.log("trying");
             console.log(res);
             if (res.length == 0) {
@@ -57,45 +58,32 @@ $(document).ready(function() {
                 <a class="waves-effect waves-light red btn deleteBlog" value = \"` + res[i].id + `\">
                 <i class="fas fa-trash-alt"></i>Delete</a>
                 </td>`);
+                newTableEl.append('<td class="blogMId emp' + [i] + '" value="' + res[i].MovieId + '"></td>');
 
                 $(".blogEdit").append(newTableEl);
-            }
-
-
+            };
         }).then(function() {
             $.get("/api/movie/", function(res) {
-                for (var i = 0; i < res.length; i++) {
-
-
-                    // console.log(movieIdArray);
-                    var numberId = Number(res[i].id)
-                        // console.log({numberId});
-
-                    var lucky = movieIdArray.filter(function(number) {
-                        // console.log (number)
-                        if (number == res[i].id) {
-                            // console.log("yay")
-
-                            var newTableEl = $('<td>');
-                            newTableEl.attr("value", res[i].id);
-
-                            // $(".movieMatch").find(".blogEdit").text(res[i].movie_name);
-                            newTableEl.append('<br><td>' + res[i].movie_name);
-
-                            $(".movieTable").append(newTableEl);
-
+                var box = $('.blogMId');
+                // console.log(box[0].attr('value'))
+                for (var i = 0; i < box.length; i++) {
+                    var classTemp = ".emp" + [i];
+                    var tempBlog = $('.blogMId').closest(classTemp);
+                    console.log(tempBlog);
+                    for (var j = 0; j < res.length; j++)
+                        if (tempBlog.attr("value") == res[j].id) {
+                            tempBlog.text(res[j].movie_name);
+                            tempBlog.removeClass('blogMId');
                         }
-                        // console.log("yay")
-
-                    })
                 }
 
-            })
+            });
 
         }).then(function() {
             $(".deleteBlog").on("click", function() {
                 tempBlogId = $(this).attr("value");
                 console.log("line 50" + tempBlogId)
+                $(this).parent().parent().remove();
                 removeBlog();
             });
         })
@@ -104,10 +92,9 @@ $(document).ready(function() {
     function removeBlog() {
         console.log("line59")
         $.ajax({
-                method: "DELETE",
-                url: "/api/blog/" + tempBlogId
-            })
-            .then(getAllBlogs);
+            method: "DELETE",
+            url: "/api/blog/" + tempBlogId
+        })
     }
 
 
