@@ -4,5 +4,8 @@ $(document).ready(function() {
     $.get("/api/user_data").then(function(data) {
         $(".userName").append("<i class=\"fas fa-user\"></i> " + data.name);
         $(".userName").attr("value", data.id);
+
+          
+      
     });
 });

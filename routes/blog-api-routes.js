@@ -36,14 +36,25 @@ module.exports = function(app) {
 
     app.get("/api/user_blogs/:id", function(req, res) {
         // Find one Author with the id in req.params.id and return them to the user with res.json
-        db.Movie.findOne({
+        db.Blog.findAll({
             where: {
                 UserId: req.params.id
             },
-            include: [db.Movies]
+            // include: [{ model: db.Movie }]
         }).then(function(dbresult) {
             res.json(dbresult);
         });
     });
+
+    app.delete("/api/blog/:id", function(req, res) {
+        db.Blog.destroy({
+            where: {
+                id: req.params.id
+            }
+        }).then(function(dbBlogs) {
+            res.json(dbBlogs);
+        });
+    });
+
 
 };
