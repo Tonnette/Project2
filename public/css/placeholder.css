@@ -1,5 +1,5 @@
 body {
-    background-color: #f5faf5;
+    background-color:white;
 }
 
 #movie-poster {
@@ -11,6 +11,77 @@ body {
     background-color: white;
 }
 
+.poster{
+    text-align: center;
+}
+
+.titleColor {
+   
+    color: #666666 !important;
+    font-family: 'Quicksand', sans-serif;
+    font-style: italic;
+    padding: 0px;
+   
+}
+.latestText{
+    font-weight: 700;
+    font-style: italic;
+}
+
+.mainTitle{
+    margin: 0px !important
+}
+
+.titleColor{
+    padding: 0px;
+    margin: 5px;
+}
+
+input{
+background-color: white !important;
+}
+.blog{
+    padding-top: 25px;
+}
+
+.titleColor:hover {
+    color: #009688 !important;
+}
+.reviewText{
+    font-weight: bold;
+    margin: 0px;
+}
+.movieCards{
+    padding: 10px !important;
+}
+
+.image {
+    opacity: 1;
+    display: block;
+    width: 100%;
+    height: auto;
+    transition: .5s ease;
+    backface-visibility: hidden;
+  }
+  
+  .middle {
+    transition: .5s ease;
+    opacity: 0;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+    text-align: center;
+  }
+.card-image:hover .image {
+    opacity: 0.3;
+  }
+  
+  .card-image:hover .middle {
+    opacity: 1;
+  }
+  
 
 
 .myToast {
@@ -103,33 +174,56 @@ body {
     color: #c59b08;
 }
 
+#movie-input {
+    margin-left: 5px;
+
+}
+
+.searchDiv{
+    padding: 0px !important;
+}
+
 
 /*star style end*/
+.topRatedFilms {
+    text-align: left;
+    font-family: 'Quicksand', sans-serif;
+    font-size: medium;
+    font-weight: 900;
+    font-style: italic;
+    padding-left: 25px;
+
+}
+
+@media screen and (max-width: 600px) {
+    .topRatedFilms {
+        text-align: center;
+        font-family: 'Quicksand', sans-serif;
+        font-size: medium;
+        font-weight: 900;
+        font-style: italic;
+    }
+  }
 
 nav {
     background-color: #2d2e2d;
 }
 
 .posterContainer {
-    /* margin-left:70px; */
-    text-align: center;
+    padding: 0px !important;
+    width: 100% !important;
+    text-align: center !important;
 }
+
 
 .blogContainer {
     display: none;
     background-color: white;
-    /* margin-right: 250px; */
-    /* padding: 25px; */
-    /* border-width: 0.2px;
-    border-style: solid;
-    border-color: gray; */
-    /* border-top: none; */
-    /* border-radius: 10px; */
 }
 
 .reviewContainer {
     display: none;
-    padding: 50px;
+    padding: 10px 25px 25px 20px;
     border: 2px;
     background-color: white;
 }
@@ -147,5 +241,9 @@ nav {
     margin-left: 20px;
 }
 
-
+.page-footer {
+    padding-top: 20px;
+    color: #fff;
+    background-color: #009688;
+}
 /*Login Modal end*/
