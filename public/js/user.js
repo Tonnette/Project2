@@ -1,8 +1,5 @@
 $(document).ready(function() {
 
-
-
-
     var verifyUserArr;
     $("#signUpBtn").on("click", function(event) {
         event.preventDefault();
@@ -17,20 +14,19 @@ $(document).ready(function() {
         }
 
 
-      var passw = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{6,20}$/;
-      if (newUser.password.match(passw)) {
-    
+        var passw = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{6,20}$/;
+        if (newUser.password.match(passw)) {
 
-      }
-      else {
-        M.toast({
-            html: "Password must be btw 6 - 20 characters which contain at least one numeric digit, one uppercase and one lowercase letter",
-            classes: 'passwordToast', 
-            displayLength: 10000,
 
-        })
-        return false;
-      }
+        } else {
+            M.toast({
+                html: "Password must be btw 6 - 20 characters which contain at least one numeric digit, one uppercase and one lowercase letter",
+                classes: 'passwordToast',
+                displayLength: 10000,
+
+            })
+            return false;
+        }
         signUpUser(newUser);
 
     });
@@ -43,11 +39,11 @@ $(document).ready(function() {
 
                 M.toast({
                     html: '*****    You are now signed up. Please log in! *****',
-                    classes: 'myToast', 
+                    classes: 'myToast',
                     displayLength: 10000,
-    
+
                 })
-                
+
                 // $("#alert .msg").text("You are now signed up. Please log in!");
                 // $("#alert").fadeIn(500);
 
@@ -58,7 +54,8 @@ $(document).ready(function() {
     };
 
     function userSignErr(err) {
-        M.toast({html: 'You are already a member. Please log in'})
+
+        M.toast({ html: 'You are already a member. Please log in' })
     };
 
     $("#loginBtn").on("click", function(event) {
@@ -81,13 +78,16 @@ $(document).ready(function() {
                 window.location.replace("/members");
             })
             .catch(handleLoginErr);
-        };
-    
-        function handleLoginErr(err) {
-            M.toast({html: 'incorrect user name or password'})
-        };
-    
-    
+    };
+
+    function handleLoginErr(err) {
+        M.toast({ html: 'incorrect user name or password' })
+    };
+
+
+
+
+
 
 
     // /member/:id
