@@ -11,6 +11,8 @@ body {
     background-color: white;
 }
 
+
+
 .myToast {
     background-color: #DC143C !important;
     color: black;
@@ -123,6 +125,13 @@ nav {
     border-color: gray; */
     /* border-top: none; */
     /* border-radius: 10px; */
+}
+
+.reviewContainer {
+    display: none;
+    padding: 50px;
+    border: 2px;
+    background-color: white;
 }
 
 
