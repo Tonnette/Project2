@@ -14,34 +14,46 @@
     <link href="./css/placeholder.css" rel="stylesheet">
 </head>
 
-<body>
-    <!-- id="home" class=scrollspy> -->
-
+<body id="home" class=scrollspy>
+    <!-- Navbar -->
     <div class="navbar-fixed">
         <nav class="teal">
             <div class="container">
                 <div class="nav-wrapper">
-                    <a href="#" data-target="mobile-nav" class="sidenav-trigger">
-                        <i class="material icons">menu</i>
-                    </a>
+                    <a href="#!" class="brand-logo">Movie Reviews</a>
+                    <a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons">menu</i></a>
                     <ul class="right hide-on-med-and-down">
                         <li>
                             <a href="members.html"> Home</a>
                         </li>
                         <li>
-                            <a href="#user" class="modal-trigger userName"></a>
+                            <a href="#user" class="modal-trigger userName uMain"></a>
                         </li>
                         <li>
                             <a href="/logout"> logout</a>
                         </li>
                         <li>
-                            <a href="#aboutUs"> About Us</a>
+                            <a href="aboutUs.html"> About Us</a>
                         </li>
                     </ul>
                 </div>
             </div>
         </nav>
     </div>
+    <ul class="sidenav" id="mobile-demo">
+        <li>
+            <a href="members.html"> Home</a>
+        </li>
+        <li>
+            <a href="#user" class="modal-trigger userName"></a>
+        </li>
+        <li>
+            <a href="/logout"> logout</a>
+        </li>
+        <li>
+            <a href="aboutUs.html"> About Us</a>
+        </li>
+    </ul>
 
 
     <div class="container blogBox"></div>
@@ -306,8 +318,6 @@
             </div>
 
 
-
-
             <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
             <script src="js/materialize.js"></script>
             <script src="js/init.js"></script>
@@ -329,7 +339,6 @@
                     interval: 7000
                 });
             </script>
-
 
 </body>
 

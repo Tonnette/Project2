@@ -14,17 +14,14 @@
     <link href="./css/placeholder.css" rel="stylesheet">
 </head>
 
-<body>
-
-    <body id="home" class=scrollspy></body>
+<body id="home" class=scrollspy>
+    <!-- Navbar -->
     <div class="navbar-fixed">
         <nav class="teal">
             <div class="container">
                 <div class="nav-wrapper">
-                    <a href="#" class="brand-logo">Movie Reviews</a>
-                    <a href="#" data-target="mobile-nav" class="sidenav-trigger">
-                        <i class="material-icons">menu</i>
-                    </a>
+                    <a href="#!" class="brand-logo">Movie Reviews</a>
+                    <a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons">menu</i></a>
                     <ul class="right hide-on-med-and-down">
                         <li>
                             <a href="index.html"> Home</a>
@@ -36,60 +33,60 @@
                             <a href="#signup" class="modal-trigger userSign"> Sign up</a>
                         </li>
                         <li>
-                            <a href="#aboutUs"> About Us</a>
+                            <a href="aboutUs.html"> About Us</a>
                         </li>
                     </ul>
                 </div>
             </div>
         </nav>
     </div>
+    <ul class="sidenav" id="mobile-demo">
+        <li>
+            <a href="index.html"> Home</a>
+        </li>
+        <li>
+            <a href="#login" class="modal-trigger userPlace"> Login</a>
+        </li>
+        <li>
+            <a href="#signup" class="modal-trigger userPlace"> Sign up</a>
+        </li>
+        <li>
+            <a href="aboutUs.html"> About Us</a>
+        </li>
+    </ul>
 
 
     <!-- Section Slider-->
     <section class="slider">
         <ul class="slides">
             <li>
-                <img src="images/image5.jpg"> <!-- random image -->
+                <img src="images/image5.jpg">
+                <!-- random image -->
                 <div class="caption left-align">
-                    <h3>Save You Money!</h3>
-                    <h5 class="light grey-text text-lighten-3 hide-on-small-only">Spending money on a movie that is not
-                        worth watching is frustrating.
-                        For instance, you go to the local cinema to watch a newly released movie only to find it has a
-                        poor storyline.
-                        If you have read reviews about the movie before going to the cinema, then you might have saved
-                        not only your money but also your energy.</h5>
+                    <h3>Save Time and Money!</h3>
+                    <h5 class="light grey-text text-lighten-3 hide-on-small-only">What is worse than going to the movies or buying a movie which you later regret?</h5>
                 </div>
             </li>
             <li>
-                <img src="images/image2.jpeg"> <!-- random image -->
+                <img src="images/image2.jpeg">
+                <!-- random image -->
                 <div class="caption center-align">
-                    <h3>Can Help You Go Into Detail</h3>
-                    <h5 class="light grey-text text-lighten-3 hide-on-small-only">In most cases, critics write movie
-                        reviews.
-                        Therefore, you can expect it to be comprehensive. If you’re keen on knowing every detail of a
-                        particular movie,
-                        then reading movie reviews is a must. For instance, you will know about the cinematography of
-                        the movie. Moreover,
-                        you will have an idea of whether or not the film was exaggerated to the extent that it is no
-                        longer realistic..</h5>
+                    <h3>User Reviews</h3>
+                    <h5 class="light grey-text text-lighten-3 hide-on-small-only"> If you’re keen on knowing every detail of a particular movie, then reading movie reviews is a must.</h5>
                 </div>
             </li>
             <li>
-                <img src="images/image4.jpg"> <!-- random image -->
+                <img src="images/image4.jpg">
+                <!-- random image -->
                 <div class="caption right-align">
-                    <h3>Gives You a Glimpse About the Movie</h3>
-                    <h5 class="light grey-text text-lighten-3 hide-on-small-only">For starters, the most significant
-                        advantage of checking out movie reviews is
-                        that they give you an idea about the movie. This allows you to decide whether to watch the movie
-                        or not. For instance,
-                        if you discovered a movie that you have not heard in the past, then movie reviews will give you
-                        an idea about how the movie goes.
-                        Therefore, you can figure out whether or not that movie is worth watching..</h5>
+                    <h3>Snapshot of the movie</h3>
+                    <h5 class="light grey-text text-lighten-3 hide-on-small-only">Our website will give you an idea about how the movie goes. Therefore, you can figure out whether or not that movie is worth watching..</h5>
                 </div>
             </li>
         </ul>
 
     </section>
+    <!-- Section Slider end-->
 
     <div style="display: none" id="alert" class="alert alert-danger" role="alert">
         <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
@@ -173,8 +170,7 @@
                         <!-- Button triggers new movie to be added -->
                         <!-- <input id="add-movie" type="submit" value="Search"> -->
                         <div class="myButton col l12 m12 s12">
-                            <button class="btn waves-effect waves-light" id="add-movie" type="submit"
-                                name="action">Search</button>
+                            <button class="btn waves-effect waves-light" id="add-movie" type="submit" name="action">Search</button>
                         </div>
                     </form>
                 </div>
@@ -187,7 +183,7 @@
                 <div class="poster">
                     <div id="movie-poster" class="center-align" !important>
                     </div>
-                    
+
                 </div>
             </div>
             <div class="col s10 offset-s1 m6 l8">
@@ -229,8 +225,7 @@
                 <div class="col s8 offset-s2 m4 l3">
                     <div class="card kmart z-depth-3" id="card-1">
                         <div class="card-image">
-                            <img src="" class="image movieInfo"><span
-                                class="card-title valign-wrapper center-align"></span>
+                            <img src="" class="image movieInfo"><span class="card-title valign-wrapper center-align"></span>
                             <div class="middle">
                                 <div class="movieInfo nameText text">
                                 </div>
@@ -246,8 +241,7 @@
                 <div class="col s8 offset-s2 m4 l3">
                     <div class="card kmart z-depth-3" id="card-2">
                         <div class="card-image">
-                            <img src="" class="image movieInfo"><span
-                                class="card-title valign-wrapper center-align"></span>
+                            <img src="" class="image movieInfo"><span class="card-title valign-wrapper center-align"></span>
                             <div class="middle">
                                 <div class="movieInfo nameText text">
                                 </div>
@@ -263,8 +257,7 @@
                 <div class="col s8 offset-s2 m4 l3">
                     <div class="card kmart z-depth-3" id="card-3">
                         <div class="card-image">
-                            <img src="" class="image movieInfo"><span
-                                class="card-title valign-wrapper center-align"></span>
+                            <img src="" class="image movieInfo"><span class="card-title valign-wrapper center-align"></span>
                             <div class="middle">
                                 <div class="movieInfo nameText text">
                                 </div>
@@ -280,8 +273,7 @@
                 <div class="col s8 offset-s2 m4 l3">
                     <div class="card kmart z-depth-3" id="card-4">
                         <div class="card-image">
-                            <img src="" class="image movieInfo"><span
-                                class="card-title valign-wrapper center-align"></span>
+                            <img src="" class="image movieInfo"><span class="card-title valign-wrapper center-align"></span>
                             <div class="middle">
                                 <div class="movieInfo nameText text">
                                 </div>
@@ -297,8 +289,7 @@
                 <div class="col s8 offset-s2 m4 l3">
                     <div class="card kmart z-depth-3" id="card-5">
                         <div class="card-image">
-                            <img src="" class="image movieInfo"><span
-                                class="card-title valign-wrapper center-align"></span>
+                            <img src="" class="image movieInfo"><span class="card-title valign-wrapper center-align"></span>
                             <div class="middle">
                                 <div class="movieInfo nameText text">
                                 </div>
@@ -314,8 +305,7 @@
                 <div class="col s8 offset-s2 m4 l3">
                     <div class="card kmart z-depth-3" id="card-6">
                         <div class="card-image">
-                            <img src="" class="image movieInfo"><span
-                                class="card-title valign-wrapper center-align"></span>
+                            <img src="" class="image movieInfo"><span class="card-title valign-wrapper center-align"></span>
                             <div class="middle">
                                 <div class="movieInfo nameText text">
                                 </div>
@@ -331,8 +321,7 @@
                 <div class="col s8 offset-s2 m4 l3">
                     <div class="card kmart z-depth-3" id="card-7">
                         <div class="card-image">
-                            <img src="" class="image movieInfo"><span
-                                class="card-title valign-wrapper center-align"></span>
+                            <img src="" class="image movieInfo"><span class="card-title valign-wrapper center-align"></span>
                             <div class="middle">
                                 <div class="movieInfo nameText text">
                                 </div>
@@ -348,8 +337,7 @@
                 <div class="col s8 offset-s2 m4 l3">
                     <div class="card kmart z-depth-3" id="card-8">
                         <div class="card-image">
-                            <img src="" class="image movieInfo"><span
-                                class="card-title valign-wrapper center-align"></span>
+                            <img src="" class="image movieInfo"><span class="card-title valign-wrapper center-align"></span>
                             <div class="middle">
                                 <div class="movieInfo nameText text">
                                 </div>
@@ -397,7 +385,6 @@
             transition: 500,
             interval: 7000
         });
-
     </script>
 
 </body>
