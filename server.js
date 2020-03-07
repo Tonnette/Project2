@@ -6,6 +6,7 @@
 // =============================================================
 var express = require("express");
 var session = require("express-session");
+var exphbs = require("express-handlebars");
 // Requiring passport as we've configured it
 var passport = require("./config/passport");
 
@@ -14,6 +15,27 @@ var passport = require("./config/passport");
 // =============================================================
 var app = express();
 var PORT = process.env.PORT || 8080;
+
+app.engine("handlebars", exphbs({ defaultLayout: "main" }));
+app.set("view engine", "handlebars");
+
+var icecreams = [
+    { name: "vanilla", price: 10, awesomeness: 3 },
+    { name: "chocolate", price: 4, awesomeness: 8 },
+    { name: "banana", price: 1, awesomeness: 1 },
+    { name: "green tea", price: 5, awesomeness: 7 },
+    { name: "jawbreakers", price: 6, awesomeness: 2 },
+    { name: "pistachio", price: 11, awesomeness: 15 }
+  ];
+  
+  // Routes
+  app.get("/icecreams/:name", function(req, res) {
+    for (var i = 0; i < icecreams.length; i++) {
+      if (icecreams[i].name === req.params.name) {
+        return res.render("icecream", icecreams[i]);
+      }
+    }
+  });
 
 app.use(express.static("public"));
 
