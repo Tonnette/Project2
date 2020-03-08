@@ -25,7 +25,7 @@ and help others do the same by sharing my thoughts.
 We wanted to create a movie review website where users could look up any movie and see what other people have reviewed. This could help them decide to watch a movie or not.
 Secondly, users can register as a member and this allows them to also add their own reviews. 
 
-The can also go into their profile page and delete any of their reviews that they are not happy with.
+They can also go into their profile page and delete any of their reviews that they are not happy with.
 
 ![MovieReview homepage](assets/img/homepage.png)
 
@@ -40,17 +40,17 @@ This web applicaiton has been deployed on Heroku so welcome to use anytime you w
 
 Click to use: https://lit-peak-86961.herokuapp.com/
 
-On the main page, if user did not login, they can click suggested movies or search their own favourites to check the reviews and rating of the others. But they can't leave a review unless they are loged in.
+On the main page, if the user did not login, they can click suggested movies or search their own favorites to check the reviews and ratings of the others. But they can't leave a review unless they are logged in.
 
-Click **Signup** to sign up a account. 
+Click **Signup** to sign up for an account. 
 
-After sign up finished, click **Login** to log in. When login button changed into user name, the user is loged in. 
+After sign up finished, click **Login** to log in. When the login button changed into the user name, the user is logged in. 
 
 Click **Logout** to log out.
 
-When loged in, there will be a form on movie review page, leave a comment, select star rating, and click **Submit** to leave a review for the current movie.
+When logged in, there will be a form on the movie review page, leave a comment, select star rating, and click **Submit** to leave a review for the current movie.
 
-Click user icon in Navbar to go to profile page. User can delete reviews of their own.
+Click the user icon in Navbar to go to the profile page. Users can delete reviews of their own.
 
 Click **About Us** to know about the developers of this app!
 
@@ -88,10 +88,11 @@ Npm used:
 
 ## Directions for Future Development
 
-The CRUD is missing Update, this feature should be added in the future.
+The search result list is needed so that the user can choose from a list of ambiguous search results. Also for the review page, a "like" button is needed for each review to add more interaction between users.
 
-Search result list is needed so that user can choose from a list of ambigurous search result. Also for review page, a "like" button is needed for each review to add more interaction between users.
+Suggested movies should alter every time the page is refreshed. And the search field can have a filter for users to choose the type of movies.
 
+On the profile page, The CRUD is missing Update function, this feature should be added in the future. Also, the user reviews should be displaying more details including time and liked rate. A filter function should also be deployed in this page for easier organizing of all the comments.
 
 
 [Back to the top](#Project-2)
