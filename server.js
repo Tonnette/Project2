@@ -6,6 +6,7 @@
 // =============================================================
 var express = require("express");
 var session = require("express-session");
+var exphbs = require("express-handlebars");
 // Requiring passport as we've configured it
 var passport = require("./config/passport");
 
@@ -14,6 +15,24 @@ var passport = require("./config/passport");
 // =============================================================
 var app = express();
 var PORT = process.env.PORT || 8080;
+
+//setup handlebars
+app.engine("handlebars", exphbs({ defaultLayout: "main" }));
+app.set("view engine", "handlebars");
+
+
+app.get("/", function(req, res) {
+    res.render("index");
+});
+var scripts = [{ script: '/js/profile.js' }, { script: '/js/members.js' }];
+app.get("/members", function(req, res) {
+    res.render("members", { scripts: scripts });
+});
+
+app.get("/aboutUs", function(req, res) {
+    res.render("aboutUs");
+});
+
 
 app.use(express.static("public"));
 

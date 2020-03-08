@@ -1,0 +1,324 @@
+    <div class="navbar-fixed">
+        <nav class="teal">
+            <div class="container">
+                <div class="nav-wrapper">
+                    <a href="#!" class="brand-logo">Movie Reviews</a>
+                    <a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons">menu</i></a>
+                    <ul class="right hide-on-med-and-down">
+                        <li>
+                            <a href="/members"> Home</a>
+                        </li>
+                        <li>
+                            <a href="#user" class="modal-trigger userName uMain"></a>
+                        </li>
+                        <li>
+                            <a href="/logout"> logout</a>
+                        </li>
+                        <li>
+                            <a href="/aboutUs"> About Us</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </div>
+    <ul class="sidenav" id="mobile-demo">
+        <li>
+            <a href="members.html"> Home</a>
+        </li>
+        <li>
+            <a href="#user" class="modal-trigger userName"></a>
+        </li>
+        <li>
+            <a href="/logout"> logout</a>
+        </li>
+        <li>
+            <a href="aboutUs.html"> About Us</a>
+        </li>
+    </ul>
+
+
+    <div class="container blogBox"></div>
+    <!-- Section Slider-->
+    <section class="slider">
+        <ul class="slides">
+            <li>
+                <img src="images/image5.jpg">
+                <!-- random image -->
+                <div class="caption left-align">
+                    <h3>Save You Money!</h3>
+                    <h5 class="light grey-text text-lighten-3 hide-on-small-only">Spending money on a movie that is not worth watching is frustrating. For instance, you go to the local cinema to watch a newly released movie only to find it has a poor storyline. If you have read reviews about the movie before going
+                        to the cinema, then you might have saved not only your money but also your energy.</h5>
+                </div>
+            </li>
+            <li>
+                <img src="images/image2.jpeg">
+                <!-- random image -->
+                <div class="caption center-align">
+                    <h3>Can Help You Go Into Detail</h3>
+                    <h5 class="light grey-text text-lighten-3 hide-on-small-only">In most cases, critics write movie reviews. Therefore, you can expect it to be comprehensive. If you’re keen on knowing every detail of a particular movie, then reading movie reviews is a must. For instance, you will know about the
+                        cinematography of the movie. Moreover, you will have an idea of whether or not the film was exaggerated to the extent that it is no longer realistic..</h5>
+                </div>
+            </li>
+            <li>
+                <img src="images/image4.jpg">
+                <!-- random image -->
+                <div class="caption right-align">
+                    <h3>Gives You a Glimpse About the Movie</h3>
+                    <h5 class="light grey-text text-lighten-3 hide-on-small-only">For starters, the most significant advantage of checking out movie reviews is that they give you an idea about the movie. This allows you to decide whether to watch the movie or not. For instance, if you discovered a movie that you
+                        have not heard in the past, then movie reviews will give you an idea about how the movie goes. Therefore, you can figure out whether or not that movie is worth watching..</h5>
+                </div>
+            </li>
+        </ul>
+
+    </section>
+    <!-- Section Slider end-->
+    <div style="display: none" id="alert" class="alert alert-danger" role="alert">
+        <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
+        <span class="sr-only">Error:</span> <span class="msg"></span>
+    </div>
+
+    <div class="container">
+        <!--search area-->
+        <div class="row">
+            <div class="col s12 col md-12 searchDiv">
+                <a href="index.html" class="titleColor">
+                    <h1 class="center-align mainTitle">Search Movies Here!</h1>
+                </a>
+                <!-- Rendered Buttons will get Dumped Here  -->
+                <div id="buttons-view" class="section section-search white white-text center scrollspy">
+                    <form id="movie-form" class="searchInput center-align">
+                        <label for="movie-input">Search a movie!</label>
+                        <input type="text" id="movie-input">
+                        <br>
+                        <!-- Button triggers new movie to be added -->
+                        <!-- <input id="add-movie" type="submit" value="Search"> -->
+                        <div class="myButton col l12 m12 s12">
+                            <button class="btn waves-effect waves-light" id="add-movie" type="submit" name="action">Search</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <!--search area end-->
+
+        <!--movie poster review-->
+        <div class="row">
+            <div class="col s10 m5 l4">
+                <div class="poster">
+                    <div id="movie-poster" class="center-align" !important>
+                    </div>
+                </div>
+            </div>
+            <div class="col s10 offset-s1 m6 l8">
+                <div class="row">
+                    <form class="myform">
+                        <div class="input-field col s8 m8 myText">
+                            <div>
+                                <div id="synopsis-area"></div>
+                                <div id="signInMessageMember"></div>
+                                <label for="textarea1">Write your review here</label>
+                                <textarea id="textarea1" class="materialize-textarea blog-box"></textarea>
+                                <!--star area-->
+                                <div class="rate">
+                                    <input type="radio" id="star5" name="rate" />
+                                    <label for="star5" title="text" id='5'>5 stars</label>
+                                    <input type="radio" id="star4" name="rate" />
+                                    <label for="star4" title="text" id='4'>4 stars</label>
+                                    <input type="radio" id="star3" name="rate" />
+                                    <label for="star3" title="text" id='3'>3 stars</label>
+                                    <input type="radio" id="star2" name="rate" />
+                                    <label for="star2" title="text" id='2'>2 stars</label>
+                                    <input type="radio" id="star1" name="rate" />
+                                    <label for="star1" title="text" id='1'>1 star</label>
+                                </div>
+                                <!--star area-->
+                                <a class="waves-effect waves-light btn dbButton right">Submit</a>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+                <div class="col s4 m8 l8">
+                    <div class="row">
+                        <div class="reviewContainer">
+                            <div class="row">
+                                <div class="upperText">
+                                    <h6 class="latestText">Latest Reviews</h6>
+                                </div>
+                                <div class="col s12 m12 l12">
+                                    <div id="blog-area"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!--movie poster review-->
+        </div>
+    </div>
+
+
+
+    <div class="container posterContainer">
+        <h3 class="topRatedFilms">Top rated films</h3>
+        <div row>
+            <div class="col s12 m4 l3">
+
+                <div id="movie-info"></div>
+            </div>
+        </div>
+
+
+        <div class="row">
+            <div class="col s8 offset-s2 m4 l3">
+                <div class="card kmart z-depth-3" id="card-1">
+                    <div class="card-image">
+                        <img src="" class="image movieInfo"><span class="card-title valign-wrapper center-align"></span>
+                        <div class="middle">
+                            <div class="movieInfo nameText text">
+                            </div>
+                        </div>
+                    </div>
+                    <p class="reviewText"> Click to review</p>
+                    <div class="card-content">
+
+                    </div>
+                </div>
+
+            </div>
+            <div class="col s8 offset-s2 m4 l3">
+                <div class="card kmart z-depth-3" id="card-2">
+                    <div class="card-image">
+                        <img src="" class="image movieInfo"><span class="card-title valign-wrapper center-align"></span>
+                        <div class="middle">
+                            <div class="movieInfo nameText text">
+                            </div>
+                        </div>
+                    </div>
+                    <p class="reviewText"> Click to review</p>
+                    <div class="card-content">
+
+                    </div>
+                </div>
+
+            </div>
+            <div class="col s8 offset-s2 m4 l3">
+                <div class="card kmart z-depth-3" id="card-3">
+                    <div class="card-image">
+                        <img src="" class="image movieInfo"><span class="card-title valign-wrapper center-align"></span>
+                        <div class="middle">
+                            <div class="movieInfo nameText text">
+                            </div>
+                        </div>
+                    </div>
+                    <p class="reviewText"> Click to review</p>
+                    <div class="card-content">
+
+                    </div>
+                </div>
+
+            </div>
+            <div class="col s8 offset-s2 m4 l3">
+                <div class="card kmart z-depth-3" id="card-4">
+                    <div class="card-image">
+                        <img src="" class="image movieInfo"><span class="card-title valign-wrapper center-align"></span>
+                        <div class="middle">
+                            <div class="movieInfo nameText text">
+                            </div>
+                        </div>
+                    </div>
+                    <p class="reviewText"> Click to review</p>
+                    <div class="card-content">
+
+                    </div>
+                </div>
+
+            </div>
+            <div class="col s8 offset-s2 m4 l3">
+                <div class="card kmart z-depth-3" id="card-5">
+                    <div class="card-image">
+                        <img src="" class="image movieInfo"><span class="card-title valign-wrapper center-align"></span>
+                        <div class="middle">
+                            <div class="movieInfo nameText text">
+                            </div>
+                        </div>
+                    </div>
+                    <p class="reviewText"> Click to review</p>
+                    <div class="card-content">
+
+                    </div>
+                </div>
+
+            </div>
+            <div class="col s8 offset-s2 m4 l3">
+                <div class="card kmart z-depth-3" id="card-6">
+                    <div class="card-image">
+                        <img src="" class="image movieInfo"><span class="card-title valign-wrapper center-align"></span>
+                        <div class="middle">
+                            <div class="movieInfo nameText text">
+                            </div>
+                        </div>
+                    </div>
+                    <p class="reviewText"> Click to review</p>
+                    <div class="card-content">
+
+                    </div>
+                </div>
+
+            </div>
+            <div class="col s8 offset-s2 m4 l3">
+                <div class="card kmart z-depth-3" id="card-7">
+                    <div class="card-image">
+                        <img src="" class="image movieInfo"><span class="card-title valign-wrapper center-align"></span>
+                        <div class="middle">
+                            <div class="movieInfo nameText text">
+                            </div>
+                        </div>
+                    </div>
+                    <p class="reviewText"> Click to review</p>
+                    <div class="card-content">
+
+                    </div>
+                </div>
+
+            </div>
+            <div class="col s8 offset-s2 m4 l3">
+                <div class="card kmart z-depth-3" id="card-8">
+                    <div class="card-image">
+                        <img src="" class="image movieInfo"><span class="card-title valign-wrapper center-align"></span>
+                        <div class="middle">
+                            <div class="movieInfo nameText text">
+                            </div>
+                        </div>
+                    </div>
+                    <p class="reviewText"> Click to review</p>
+                    <div class="card-content">
+
+                    </div>
+                </div>
+
+            </div>
+    </div>
+    <footer class="page-footer myFooter">
+        <div class="footer-copyright">
+            <div class="container footerColor">
+                © 2020 Andy, Tonnette, Jesse
+                <!-- <p class="grey-text text-lighten-4 center" </p> -->
+            </div>
+        </div>
+    </footer>
+   
+    <script>
+        // Sidenav
+        const sideNav = document.querySelector('.sidenav');
+        M.Sidenav.init(sideNav, {});
+
+        //Slider
+        const slider = document.querySelector('.slider');
+        M.Slider.init(slider, {
+            indicators: false,
+            height: 500,
+            transition: 500,
+            interval: 7000
+        });
+    </script>

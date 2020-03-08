@@ -59,6 +59,7 @@ $(document).ready(function() {
     };
 
     $("#loginBtn").on("click", function(event) {
+        console.log("62 clicked")
         event.preventDefault();
         verifyUser = {
             email: $("#loginEmail").val().trim(),
@@ -73,6 +74,8 @@ $(document).ready(function() {
     });
 
     function loginUser(verifyUser) {
+
+        console.log("78 clicked")
         $.post("/api/login", verifyUser)
             .then(function(verifyUser) {
                 window.location.replace("/members");

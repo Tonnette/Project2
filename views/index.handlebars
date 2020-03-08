@@ -1,0 +1,361 @@
+    <div class="navbar-fixed">
+        <nav class="teal">
+            <div class="container">
+                <div class="nav-wrapper">
+                    <a href="#!" class="brand-logo">Movie Reviews</a>
+                    <a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons">menu</i></a>
+                    <ul class="right hide-on-med-and-down">
+                        <li>
+                            <a href="/"> Home</a>
+                        </li>
+                        <li>
+                            <a href="#login" class="modal-trigger userPlace"> Login</a>
+                        </li>
+                        <li>
+                            <a href="#signup" class="modal-trigger userSign"> Sign up</a>
+                        </li>
+                        <li>
+                            <a href="/aboutUs"> About Us</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </div>
+    <ul class="sidenav" id="mobile-demo">
+        <li>
+            <a href="index.html"> Home</a>
+        </li>
+        <li>
+            <a href="#login" class="modal-trigger userPlace"> Login</a>
+        </li>
+        <li>
+            <a href="#signup" class="modal-trigger userPlace"> Sign up</a>
+        </li>
+        <li>
+            <a href="aboutUs.html"> About Us</a>
+        </li>
+    </ul>
+
+
+    <!-- Section Slider-->
+    <section class="slider">
+        <ul class="slides">
+            <li>
+                <img src="images/image5.jpg">
+                <!-- random image -->
+                <div class="caption left-align">
+                    <h3>Save Time and Money!</h3>
+                    <h5 class="light grey-text text-lighten-3 hide-on-small-only">What is worse than going to the movies or buying a movie which you later regret?</h5>
+                </div>
+            </li>
+            <li>
+                <img src="images/image2.jpeg">
+                <!-- random image -->
+                <div class="caption center-align">
+                    <h3>User Reviews</h3>
+                    <h5 class="light grey-text text-lighten-3 hide-on-small-only"> If you’re keen on knowing every detail of a particular movie, then reading movie reviews is a must.</h5>
+                </div>
+            </li>
+            <li>
+                <img src="images/image4.jpg">
+                <!-- random image -->
+                <div class="caption right-align">
+                    <h3>Snapshot of the movie</h3>
+                    <h5 class="light grey-text text-lighten-3 hide-on-small-only">Our website will give you an idea about how the movie goes. Therefore, you can figure out whether or not that movie is worth watching..</h5>
+                </div>
+            </li>
+        </ul>
+
+    </section>
+    <!-- Section Slider end-->
+
+    <div style="display: none" id="alert" class="alert alert-danger" role="alert">
+        <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
+        <span class="sr-only">Error:</span> <span class="msg"></span>
+    </div>
+
+    <div class="container">
+
+        <!--signup modal-->
+        <div id="signup" class="modal">
+            <div class="modal-content center">
+                <h4>Signup to Post Your Comments</h4>
+                <br>
+
+                <div class="input-field">
+                    <i class="fas fa-user prefix"></i>
+                    <input type="text" id="userName">
+                    <label for="name">Username</label>
+                </div>
+                <br>
+
+                <div class="input-field">
+                    <i class="fas fa-envelope prefix"></i>
+                    <input type="text" id="userEmail">
+                    <label for="email">Email</label>
+                </div>
+                <br>
+
+                <div class="input-field ">
+                    <i class="fas fa-lock prefix"></i>
+                    <input type="password" id="pass">
+                    <label for="password">Password</label>
+                </div>
+                <br>
+
+            </div>
+            <div class="modal-footer">
+                <a id="signUpBtn" class="btn waves-effect waves-light modal-close"> Signup</a>
+            </div>
+        </div>
+        <!--signup modal end-->
+
+        <!--login modal-->
+        <div id="login" class="modal">
+            <div class="modal-content center">
+                <h4>Login to Post Your Comments</h4>
+                <br>
+
+                <div class="input-field">
+                    <i class="fas fa-user prefix"></i>
+                    <input type="text" id="loginEmail">
+                    <label for="email">Email</label>
+                </div>
+                <br>
+
+                <div class="input-field ">
+                    <i class="fas fa-lock prefix"></i>
+                    <input type="password" id="loginPass">
+                    <label for="password">Password</label>
+                </div>
+                <br>
+
+            </div>
+            <div class="modal-footer">
+                <a id="loginBtn" class="btn waves-effect waves-light modal-close"> Login</a>
+            </div>
+        </div>
+        <!--Login modal end-->
+
+        <div class="row">
+            <div class="col s12 col md-12 searchDiv">
+                <a href="index.html" class="titleColor">
+                    <h1 class="center-align mainTitle">Search Movies Here!</h1>
+                </a>
+                <!-- Rendered Buttons will get Dumped Here  -->
+                <div id="buttons-view" class="section section-search white white-text center scrollspy">
+                    <form id="movie-form" class="searchInput center-align">
+                        <label for="movie-input">Search a movie!</label>
+                        <input type="text" id="movie-input">
+                        <br>
+                        <!-- Button triggers new movie to be added -->
+                        <!-- <input id="add-movie" type="submit" value="Search"> -->
+                        <div class="myButton col l12 m12 s12">
+                            <button class="btn waves-effect waves-light" id="add-movie" type="submit" name="action">Search</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+
+            <div class="col s10 m5 l4">
+                <div class="poster">
+                    <div id="movie-poster" class="center-align" !important>
+                    </div>
+
+                </div>
+            </div>
+            <div class="col s10 offset-s1 m6 l8">
+                <div class="row">
+
+                    <div class="reviewContainer">
+                        <div class="row">
+
+                            <div class="upperText">
+                                <div id="synopsis-area"></div>
+                                <h6 class="latestText">Latest Reviews</h6>
+                                <div id="signInMessage"></div>
+
+                            </div>
+                            <div id="blog-area"></div>
+
+                        </div>
+
+
+                    </div>
+
+
+                </div>
+            </div>
+
+        </div>
+
+        <div class="container posterContainer">
+            <h3 class="topRatedFilms">Top rated films</h3>
+            <div row>
+                <div class="col s12 m4 l3">
+
+                    <div id="movie-info"></div>
+                </div>
+            </div>
+
+
+            <div class="row">
+                <div class="col s8 offset-s2 m4 l3">
+                    <div class="card kmart z-depth-3" id="card-1">
+                        <div class="card-image">
+                            <img src="" class="image movieInfo"><span class="card-title valign-wrapper center-align"></span>
+                            <div class="middle">
+                                <div class="movieInfo nameText text">
+                                </div>
+                            </div>
+                        </div>
+                        <p class="reviewText"> Click to review</p>
+                        <div class="card-content">
+
+                        </div>
+                    </div>
+
+                </div>
+                <div class="col s8 offset-s2 m4 l3">
+                    <div class="card kmart z-depth-3" id="card-2">
+                        <div class="card-image">
+                            <img src="" class="image movieInfo"><span class="card-title valign-wrapper center-align"></span>
+                            <div class="middle">
+                                <div class="movieInfo nameText text">
+                                </div>
+                            </div>
+                        </div>
+                        <p class="reviewText"> Click to review</p>
+                        <div class="card-content">
+
+                        </div>
+                    </div>
+
+                </div>
+                <div class="col s8 offset-s2 m4 l3">
+                    <div class="card kmart z-depth-3" id="card-3">
+                        <div class="card-image">
+                            <img src="" class="image movieInfo"><span class="card-title valign-wrapper center-align"></span>
+                            <div class="middle">
+                                <div class="movieInfo nameText text">
+                                </div>
+                            </div>
+                        </div>
+                        <p class="reviewText"> Click to review</p>
+                        <div class="card-content">
+
+                        </div>
+                    </div>
+
+                </div>
+                <div class="col s8 offset-s2 m4 l3">
+                    <div class="card kmart z-depth-3" id="card-4">
+                        <div class="card-image">
+                            <img src="" class="image movieInfo"><span class="card-title valign-wrapper center-align"></span>
+                            <div class="middle">
+                                <div class="movieInfo nameText text">
+                                </div>
+                            </div>
+                        </div>
+                        <p class="reviewText"> Click to review</p>
+                        <div class="card-content">
+
+                        </div>
+                    </div>
+
+                </div>
+                <div class="col s8 offset-s2 m4 l3">
+                    <div class="card kmart z-depth-3" id="card-5">
+                        <div class="card-image">
+                            <img src="" class="image movieInfo"><span class="card-title valign-wrapper center-align"></span>
+                            <div class="middle">
+                                <div class="movieInfo nameText text">
+                                </div>
+                            </div>
+                        </div>
+                        <p class="reviewText"> Click to review</p>
+                        <div class="card-content">
+
+                        </div>
+                    </div>
+
+                </div>
+                <div class="col s8 offset-s2 m4 l3">
+                    <div class="card kmart z-depth-3" id="card-6">
+                        <div class="card-image">
+                            <img src="" class="image movieInfo"><span class="card-title valign-wrapper center-align"></span>
+                            <div class="middle">
+                                <div class="movieInfo nameText text">
+                                </div>
+                            </div>
+                        </div>
+                        <p class="reviewText"> Click to review</p>
+                        <div class="card-content">
+
+                        </div>
+                    </div>
+
+                </div>
+                <div class="col s8 offset-s2 m4 l3">
+                    <div class="card kmart z-depth-3" id="card-7">
+                        <div class="card-image">
+                            <img src="" class="image movieInfo"><span class="card-title valign-wrapper center-align"></span>
+                            <div class="middle">
+                                <div class="movieInfo nameText text">
+                                </div>
+                            </div>
+                        </div>
+                        <p class="reviewText"> Click to review</p>
+                        <div class="card-content">
+
+                        </div>
+                    </div>
+
+                </div>
+                <div class="col s8 offset-s2 m4 l3">
+                    <div class="card kmart z-depth-3" id="card-8">
+                        <div class="card-image">
+                            <img src="" class="image movieInfo"><span class="card-title valign-wrapper center-align"></span>
+                            <div class="middle">
+                                <div class="movieInfo nameText text">
+                                </div>
+                            </div>
+                        </div>
+                        <p class="reviewText"> Click to review</p>
+                        <div class="card-content">
+
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+        </div>
+    </div>
+   <footer class="page-footer myFooter">
+        <div class="footer-copyright">
+            <div class="container footerColor">
+                © 2020 Andy, Tonnette, Jesse
+                <!-- <p class="grey-text text-lighten-4 center" </p> -->
+            </div>
+        </div>
+    </footer>
+   
+    <script>
+        // Sidenav
+        const sideNav = document.querySelector('.sidenav');
+        M.Sidenav.init(sideNav, {});
+
+        //Slider
+        const slider = document.querySelector('.slider');
+        M.Slider.init(slider, {
+            indicators: false,
+            height: 500,
+            transition: 500,
+            interval: 7000
+        });
+    </script>
