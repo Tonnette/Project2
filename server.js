@@ -16,6 +16,7 @@ var passport = require("./config/passport");
 var app = express();
 var PORT = process.env.PORT || 8080;
 
+
 //setup handlebars
 app.engine("handlebars", exphbs({ defaultLayout: "main" }));
 app.set("view engine", "handlebars");
@@ -33,6 +34,9 @@ app.get("/aboutUs", function(req, res) {
     res.render("aboutUs");
 });
 
+app.engine("handlebars", exphbs({ defaultLayout: "main" }));
+app.set("view engine", "handlebars");
+  
 
 app.use(express.static("public"));
 
