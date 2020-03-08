@@ -69,7 +69,7 @@ $(document).ready(function() {
         if (chosenMovie == "") {
             M.toast({
                 html: "<div class='message'>Movie not found!</div>",
-                classes: 'rounded',
+                classes: 'orangeToast',
                 displayLength: 3500,
 
             })
@@ -159,7 +159,7 @@ $(document).ready(function() {
                 console.log(whatLength)
                 if (whatLength == 0) {
                     $(".latestText").hide();
-                    $("#signInMessage").prepend("<b> No reviews yet. Please sign up/login to be the first to review this film </b>");
+                    $("#signInMessage").prepend("<b> No reviews yet. Please <a href='#signup' class='modal-trigger userSign'> Sign up</a> or  <a href='#login' class='modal-trigger userPlace'> Login</a> to be the first to review this film </b>");
                     $("#signInMessageMember").prepend("<b> No reviews yet. </b>");
                 } else {
                     for (var i = 0; i < data.Blogs.length; i++) {
@@ -208,7 +208,8 @@ $(document).ready(function() {
                 if (whatLength == 0) {
 
                     $(".latestText").hide();
-                    $("#signInMessage").prepend("<b> No reviews yet. Please sign up/login to be the first to review this film </b>");
+                    $("#signInMessage").prepend("<b> No reviews yet. Please <a href='#signup' class='modal-trigger userSign'> Sign up</a> or  <a href='#login' class='modal-trigger userPlace'> Login</a> to be the first to review this film </b>");
+                    
                     $("#signInMessageMember").prepend("<b> No reviews yet. </b>");
                 } else {
                     for (var i = 0; i < data.Blogs.length; i++) {
@@ -269,6 +270,7 @@ $(document).ready(function() {
 
                 var row = $("<div>");
                 row.addClass("blurb");
+                row.append("<p><b><h5>" + response.results[0].original_title + "</h5></b></p>");
                 row.append("<p>" + "<b>" + " Synopsis: " + "</b>" + response.results[0].overview + "</p>");
                 var releaseYear = response.results[0].release_date
                 var newRel = String(releaseYear.slice(0, -6))
@@ -299,7 +301,7 @@ $(document).ready(function() {
                 $(".latestText").hide();
                 M.toast({
                     html: "<div class='message'>Sorry, can't find that movie. Try another one!</div>",
-                    classes: 'rounded',
+                    classes: 'orangeToast',
                     displayLength: 3500,
 
                 });

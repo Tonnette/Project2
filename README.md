@@ -21,8 +21,10 @@
 >As a movie lover, I want to see what other movie lovers have to say movies.
 I also want to be able to share my reviews on movies I feel passionate about.
 So I can make good decisions about what movies are worth watching,
-and help others do the same by sharing my thoughts.
+and help others do the same by sharing my reviews.
 
+
+### Motivation to create this app
 We wanted to create a movie review website where users could look up any movie and see what other people have reviewed. This could help them decide to watch a movie or not.
 Secondly, users can register as a member and this allows them to also add their own reviews. 
 
@@ -37,21 +39,21 @@ They can also go into their profile page and delete any of their reviews that th
 
 ## How to Use
 
-This web applicaiton has been deployed on Heroku so welcome to use anytime you want.
+This web applicaiton has been deployed on Heroku so you are welcome to use it anytime you want.
 
 Click to use: https://lit-peak-86961.herokuapp.com/
 
-On the main page, if the user did not login, they can click suggested movies or search their own favorites to check the reviews and ratings of the others. But they can't leave a review unless they are logged in.
+On the main page, if the user does not login, they can click suggested movies or search their own favorites to check the reviews and ratings from others. But they can't leave a review unless they are logged in.
 
 Click **Signup** to sign up for an account. 
 
-After sign up finished, click **Login** to log in. When the login button changed into the user name, the user is logged in. 
+After sign up is complete, click **Login** to log in. When the login button has changed into the user name, the user is logged in. 
 
 Click **Logout** to log out.
 
 When logged in, there will be a form on the movie review page, leave a comment, select star rating, and click **Submit** to leave a review for the current movie.
 
-Click the user icon in Navbar to go to the profile page. Users can delete reviews of their own.
+Click the user icon in Navbar to go to the profile page. Users can then delete any review of their own.
 
 Click **About Us** to know about the developers of this app!
 
@@ -89,11 +91,11 @@ Npm used:
 
 ## Directions for Future Development
 
-The search result list is needed so that the user can choose from a list of ambiguous search results. Also for the review page, a "like" button is needed for each review to add more interaction between users.
+The search result list could be added so that the user can choose from a list of ambiguous search results. Also for the review page, a "like" button would be ideal for each review to add more interaction between users.
 
-Suggested movies should alter every time the page is refreshed. And the search field can have a filter for users to choose the type of movies.
+Suggested movies should ideally alter every time the page is refreshed. And the search field could have a filter for users to search movies by genre.
 
-On the profile page, The CRUD is missing Update function, this feature should be added in the future. Also, the user reviews should be displaying more details including time and liked rate. A filter function should also be deployed in this page for easier organizing of all the comments.
+On the profile page, The CRUD is missing Update function, this feature could be added in the future to allow users to edit their reviews. Also, the user reviews could display more details including time/date of review and liked rate. A filter function could also be deployed in this page for easier organizing of all the comments.
 
 
 [Back to the top](#Project-2)
@@ -110,45 +112,7 @@ The design is accomplished by following developers from the same Web Dev Bootcam
 
 [Back to the top](#Project-2)
 
-=======
-# Project2
-
-We wanted to create a movie review website where users could look up any movie and see what other people have reviewed. This could help them decide to watch a movie or not.
-Secondly, users can register as a member and this allows them to also add their own reviews. 
-The can also go into their profile page and delete any of their reviews that they are not happy with.
-
-# Requirements
-
-We used Node and Express Server
-We have a MySQL database
-We used Sequelize 
-We utilized both GET and POST  and DELETE routes for retrieving, adding and deleting data
-Our App is deployed with Heroku
-We utilized the themoviedb API and did ajax calls to retrieve all data about the searched movies
-We then stored the user data into our database. 
-We also used passport package so that users can log in and sign up
-We used bcrypt js to scrabble our passwords
-We did not use Bootstrap, we used Materialize Framework
-
-# User Story
-
-As a movie lover, I want to see what other movie lovers have to say movies, I also want to be able to share my reviews on movies I feel passionate about, so I can make good decisions about what movies are worth watching and help others do the same by sharing my thoughts.
-
-# Division of work
-
-Tonnette and Andy
-Tonnette worked on the AJAX calls to our moviedb API. That is how we see these lovely movie posters and synposis
-Tonnette and Andy worked on the backend. Creating the database, tables and implementing sequelize
-Tonnette and Andy created all the models, routes, javascript
-Tonnette and Andy implemented Passport and Bcryptjs
-Andy created the profile page and DELETE requests
-Jesse
-Jesse worked on the UI and implemented the Materialise framework using the Materiaize Grid, including hamburger.
-Jesse added responsiveness
-Jesse added carousel slides 
-Jesse added About Us page
-
-# Division of work
+# Links
 Heroku deployed
 https://lit-peak-86961.herokuapp.com/index.html
 
