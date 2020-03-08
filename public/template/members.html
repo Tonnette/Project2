@@ -90,98 +90,90 @@
         </ul>
 
     </section>
-
+    <!-- Section Slider end-->
     <div style="display: none" id="alert" class="alert alert-danger" role="alert">
         <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
         <span class="sr-only">Error:</span> <span class="msg"></span>
     </div>
 
-
-    <div class="row">
-        <div class="col s12 col md-12 searchDiv">
-            <a href="index.html" class="titleColor">
-                <h1 class="center-align mainTitle">Search Movies Here!</h1>
-            </a>
-            <!-- Rendered Buttons will get Dumped Here  -->
-            <div id="buttons-view" class="section section-search white white-text center scrollspy">
-                <form id="movie-form" class="searchInput center-align">
-                    <label for="movie-input">Search a movie!</label>
-                    <input type="text" id="movie-input">
-                    <br>
-                    <!-- Button triggers new movie to be added -->
-                    <!-- <input id="add-movie" type="submit" value="Search"> -->
-                    <div class="myButton col l12 m12 s12">
-                        <button class="btn waves-effect waves-light" id="add-movie" type="submit" name="action">Search</button>
-                    </div>
-                </form>
-            </div>
-        </div>
-    </div>
-
-    <div class="row">
-
-        <div class="col s10 m5 l4">
-            <div class="poster">
-                <div id="movie-poster" class="center-align" !important>
-                </div>
-
-            </div>
-
-        </div>
-        <div class="col s10 offset-s1 m6 l8">
-            <div class="row">
-                <form class="myform">
-                    <div class="input-field col s8 m8 myText">
-                        <div>
-                            <div id="synopsis-area"></div>
-
-                            <div id="signInMessageMember"></div>
-                            <label for="textarea1">Write your review here</label>
-                            <textarea id="textarea1" class="materialize-textarea blog-box"></textarea>
-                            <!--star area-->
-                            <div class="rate">
-                                <input type="radio" id="star5" name="rate" />
-                                <label for="star5" title="text" id='5'>5 stars</label>
-                                <input type="radio" id="star4" name="rate" />
-                                <label for="star4" title="text" id='4'>4 stars</label>
-                                <input type="radio" id="star3" name="rate" />
-                                <label for="star3" title="text" id='3'>3 stars</label>
-                                <input type="radio" id="star2" name="rate" />
-                                <label for="star2" title="text" id='2'>2 stars</label>
-                                <input type="radio" id="star1" name="rate" />
-                                <label for="star1" title="text" id='1'>1 star</label>
-                            </div>
-                            <!--star area-->
-                            <a class="waves-effect waves-light btn dbButton right">Submit</a>
+    <div class="container">
+        <!--search area-->
+        <div class="row">
+            <div class="col s12 col md-12 searchDiv">
+                <a href="index.html" class="titleColor">
+                    <h1 class="center-align mainTitle">Search Movies Here!</h1>
+                </a>
+                <!-- Rendered Buttons will get Dumped Here  -->
+                <div id="buttons-view" class="section section-search white white-text center scrollspy">
+                    <form id="movie-form" class="searchInput center-align">
+                        <label for="movie-input">Search a movie!</label>
+                        <input type="text" id="movie-input">
+                        <br>
+                        <!-- Button triggers new movie to be added -->
+                        <!-- <input id="add-movie" type="submit" value="Search"> -->
+                        <div class="myButton col l12 m12 s12">
+                            <button class="btn waves-effect waves-light" id="add-movie" type="submit" name="action">Search</button>
                         </div>
-
-
-                    </div>
-                </form>
+                    </form>
+                </div>
             </div>
-            <div class="col s10 m8 l8">
+        </div>
+        <!--search area end-->
+
+        <!--movie poster review-->
+        <div class="row">
+            <div class="col s10 m5 l4">
+                <div class="poster">
+                    <div id="movie-poster" class="center-align" !important>
+                    </div>
+                </div>
+            </div>
+            <div class="col s10 offset-s1 m6 l8">
                 <div class="row">
-                    <div class="reviewContainer">
-                        <div class="row">
-                            <div class="upperText">
-                                <h6 class="latestText">Latest Reviews</h6>
+                    <form class="myform">
+                        <div class="input-field col s8 m8 myText">
+                            <div>
+                                <div id="synopsis-area"></div>
+                                <div id="signInMessageMember"></div>
+                                <label for="textarea1">Write your review here</label>
+                                <textarea id="textarea1" class="materialize-textarea blog-box"></textarea>
+                                <!--star area-->
+                                <div class="rate">
+                                    <input type="radio" id="star5" name="rate" />
+                                    <label for="star5" title="text" id='5'>5 stars</label>
+                                    <input type="radio" id="star4" name="rate" />
+                                    <label for="star4" title="text" id='4'>4 stars</label>
+                                    <input type="radio" id="star3" name="rate" />
+                                    <label for="star3" title="text" id='3'>3 stars</label>
+                                    <input type="radio" id="star2" name="rate" />
+                                    <label for="star2" title="text" id='2'>2 stars</label>
+                                    <input type="radio" id="star1" name="rate" />
+                                    <label for="star1" title="text" id='1'>1 star</label>
+                                </div>
+                                <!--star area-->
+                                <a class="waves-effect waves-light btn dbButton right">Submit</a>
                             </div>
-                            <div class="col s12 m12 l12">
-                                <div id="blog-area"></div>
+                        </div>
+                    </form>
+                </div>
+                <div class="col s4 m8 l8">
+                    <div class="row">
+                        <div class="reviewContainer">
+                            <div class="row">
+                                <div class="upperText">
+                                    <h6 class="latestText">Latest Reviews</h6>
+                                </div>
+                                <div class="col s12 m12 l12">
+                                    <div id="blog-area"></div>
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
+            <!--movie poster review-->
         </div>
-
-
     </div>
-
-
-
-
-
 
 
 

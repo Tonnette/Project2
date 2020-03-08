@@ -16,26 +16,27 @@ var passport = require("./config/passport");
 var app = express();
 var PORT = process.env.PORT || 8080;
 
+
+//setup handlebars
 app.engine("handlebars", exphbs({ defaultLayout: "main" }));
 app.set("view engine", "handlebars");
 
-var icecreams = [
-    { name: "vanilla", price: 10, awesomeness: 3 },
-    { name: "chocolate", price: 4, awesomeness: 8 },
-    { name: "banana", price: 1, awesomeness: 1 },
-    { name: "green tea", price: 5, awesomeness: 7 },
-    { name: "jawbreakers", price: 6, awesomeness: 2 },
-    { name: "pistachio", price: 11, awesomeness: 15 }
-  ];
+
+app.get("/", function(req, res) {
+    res.render("index");
+});
+var scripts = [{ script: '/js/profile.js' }, { script: '/js/members.js' }];
+app.get("/members", function(req, res) {
+    res.render("members", { scripts: scripts });
+});
+
+app.get("/aboutUs", function(req, res) {
+    res.render("aboutUs");
+});
+
+app.engine("handlebars", exphbs({ defaultLayout: "main" }));
+app.set("view engine", "handlebars");
   
-  // Routes
-  app.get("/icecreams/:name", function(req, res) {
-    for (var i = 0; i < icecreams.length; i++) {
-      if (icecreams[i].name === req.params.name) {
-        return res.render("icecream", icecreams[i]);
-      }
-    }
-  });
 
 app.use(express.static("public"));
 
@@ -49,6 +50,8 @@ app.use(express.json());
 app.use(session({ secret: "keyboard cat", resave: true, saveUninitialized: true }));
 app.use(passport.initialize());
 app.use(passport.session());
+
+
 
 // Routes
 // =============================================================

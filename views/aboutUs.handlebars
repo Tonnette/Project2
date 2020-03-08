@@ -1,0 +1,89 @@
+    <div class="navbar-fixed">
+        <nav class="teal">
+            <div class="container">
+                <div class="nav-wrapper">
+                    <a href="#!" class="brand-logo">Movie Reviews</a>
+                    <a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons">menu</i></a>
+                    <ul class="right hide-on-med-and-down">
+                        <li>
+                            <a href="/"> Home</a>
+                        </li>
+                        <li>
+                            <a href="#login" class="modal-trigger userPlace"> Login</a>
+                        </li>
+                        <li>
+                            <a href="#signup" class="modal-trigger userPlace"> Sign up</a>
+                        </li>
+                        <li>
+                            <a href="/aboutUs"> About Us</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </div>
+    <ul class="sidenav" id="mobile-demo">
+        <li>
+            <a href="/"> Home</a>
+        </li>
+        <li>
+            <a href="#login" class="modal-trigger userPlace"> Login</a>
+        </li>
+        <li>
+            <a href="#signup" class="modal-trigger userPlace"> Sign up</a>
+        </li>
+        <li>
+            <a href="/aboutUs"> About Us</a>
+        </li>
+    </ul>
+
+
+    <div class="divider"></div>
+    <div class="container">
+        <div class="section">
+            <h5>Andy Yuan</h5>
+            <img src="./images/ay.png" alt="Avatar" class="circle responsive-img" style="width:200px">
+            <p>Tony is a mission-driven engineer has great passion and skill in modeling and simulation, and a lifelong technology lover passionate about developing great products as a mechanical engineer. I'm always ready for a challenge and love to learn
+                new skills.
+            </p>
+        </div>
+        <div class="divider"></div>
+        <div class="section">
+            <h5>Tonnette </h5>
+            <img src="./images/ta.png" alt="Avatar" class="circle responsive-img" style="width:200px">
+            <p>Tonnette is a Web Developer based in Sydney. She is currently completing a full-stack Web Developer bootcamp run by Sydney University and Trilogy Education. She has skills in HTML, CSS, JavaScript, JQuery, APIs, Bootstrap and Materialize. She has worked on numerous web projects including a cocktail-making app, a weather app, a day-planner, a password generator, and websites.
+            </p>
+        </div>
+        <div class="divider"></div>
+        <div class="section">
+            <h5>Jesse Gooroovadoo</h5>
+            <img src="./images/jg.png" alt="Avatar" class="circle responsive-img" style="width:200px">
+            <p>Jesse is an aspiring full stack web developer currently studying at the University of
+                Sydney.Jesse is nearing the completion of the Full Stack Web Developer Boot Camp and is trying to pursue
+                his goal of becoming a knowledgable web developer.
+            </p>
+        </div>
+    </div>
+    <footer class="page-footer myFooter">
+        <div class="footer-copyright">
+            <div class="container footerColor">
+                © 2020 Andy, Tonnette, Jesse
+                <!-- <p class="grey-text text-lighten-4 center" </p> -->
+            </div>
+        </div>
+    </footer>
+   
+    <script>
+        // Sidenav
+        const sideNav = document.querySelector('.sidenav');
+        M.Sidenav.init(sideNav, {});
+
+        //Slider
+        const slider = document.querySelector('.slider');
+        M.Slider.init(slider, {
+            indicators: false,
+            height: 500,
+            transition: 500,
+            interval: 7000
+        });
+    </script>
