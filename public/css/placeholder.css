@@ -85,7 +85,15 @@ background-color: white !important;
 
 
 .myToast {
-    background-color: #DC143C !important;
+    background-color: #DC143C!important;
+    color: black;
+    font-weight: 700;
+    font-size: larger;
+    text-align: center !important;
+}
+
+.orangeToast {
+    background-color: #ff8000 !important;
     color: black;
     font-weight: 700;
     font-size: larger;

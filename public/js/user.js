@@ -1,7 +1,7 @@
-$(document).ready(function() {
+$(document).ready(function () {
 
     var verifyUserArr;
-    $("#signUpBtn").on("click", function(event) {
+    $("#signUpBtn").on("click", function (event) {
         event.preventDefault();
         var newUser = {
             name: $("#userName").val().trim(),
@@ -33,7 +33,7 @@ $(document).ready(function() {
 
     function signUpUser(newUser) {
         $.post("/api/signup", newUser)
-            .then(function() {
+            .then(function () {
                 $(".userSign").hide();
                 $(".userName").append("<i class=\"fas fa-user\"></i> " + newUser.name);
 
@@ -47,7 +47,7 @@ $(document).ready(function() {
                 // $("#alert .msg").text("You are now signed up. Please log in!");
                 // $("#alert").fadeIn(500);
 
-                $.get("/api/signup/" + newUser.email, function(data) {
+                $.get("/api/signup/" + newUser.email, function (data) {
                     $(".userName").attr("value", data.id);
                 });
             }).catch(userSignErr);
@@ -58,7 +58,7 @@ $(document).ready(function() {
         M.toast({ html: 'You are already a member. Please log in' })
     };
 
-    $("#loginBtn").on("click", function(event) {
+    $("#loginBtn").on("click", function (event) {
         console.log("62 clicked")
         event.preventDefault();
         verifyUser = {
@@ -77,15 +77,21 @@ $(document).ready(function() {
 
         console.log("78 clicked")
         $.post("/api/login", verifyUser)
-            .then(function(verifyUser) {
+            .then(function (verifyUser) {
                 window.location.replace("/members");
             })
             .catch(handleLoginErr);
     };
 
     function handleLoginErr(err) {
-        M.toast({ html: 'incorrect user name or password' })
+        M.toast({
+            html: 'incorrect user name or password',
+            classes: 'passwordToast',
+            displayLength: 10000,
+
+        })
     };
+
 
 
 
