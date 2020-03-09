@@ -22,17 +22,6 @@ app.engine("handlebars", exphbs({ defaultLayout: "main" }));
 app.set("view engine", "handlebars");
 
 
-app.get("/", function(req, res) {
-  res.render("index");
-});
-var scripts = [{ script: "/js/profile.js" }, { script: "/js/members.js" }];
-app.get("/members", function(req, res) {
-  res.render("members", { scripts: scripts });
-});
-
-app.get("/aboutUs", function(req, res) {
-  res.render("aboutUs");
-});
 
 app.engine("handlebars", exphbs({ defaultLayout: "main" }));
 app.set("view engine", "handlebars");
