@@ -24,7 +24,7 @@ $(document).ready(function() {
         }).then(function(response) {
 
             for (var i = 9; i > 0; i--) {
-                let cardID = "card-" + (i - 1);
+                var cardID = "card-" + (i - 1);
                 var randomImage = response.results[i].poster_path
                 var randomURL = "https://image.tmdb.org/t/p/w200" + randomImage;
                 $("#" + cardID).find("img").attr("src", randomURL);

@@ -23,20 +23,20 @@ app.set("view engine", "handlebars");
 
 
 app.get("/", function(req, res) {
-    res.render("index");
+  res.render("index");
 });
-var scripts = [{ script: '/js/profile.js' }, { script: '/js/members.js' }];
+var scripts = [{ script: "/js/profile.js" }, { script: "/js/members.js" }];
 app.get("/members", function(req, res) {
-    res.render("members", { scripts: scripts });
+  res.render("members", { scripts: scripts });
 });
 
 app.get("/aboutUs", function(req, res) {
-    res.render("aboutUs");
+  res.render("aboutUs");
 });
 
 app.engine("handlebars", exphbs({ defaultLayout: "main" }));
 app.set("view engine", "handlebars");
-  
+
 
 app.use(express.static("public"));
 
@@ -62,7 +62,7 @@ require("./routes/user-api-routes.js")(app);
 
 // Syncing our sequelize models and then starting our express app
 db.sequelize.sync().then(function() {
-    app.listen(PORT, function() {
-        console.log("App listening on PORT " + PORT);
-    });
+  app.listen(PORT, function() {
+    console.log("App listening on PORT " + PORT);
+  });
 });
