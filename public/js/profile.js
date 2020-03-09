@@ -30,7 +30,6 @@ $(document).ready(function() {
 
 
         $.get("/api/user_blogs/" + userId, function(res) {
-
             $(".slider").hide();
             $(".searchDiv").hide();
             $(".reviewContainer").hide();
@@ -59,7 +58,6 @@ $(document).ready(function() {
                 <i class="fas fa-trash-alt"></i>Delete</a>
                 </td>`);
                 newTableEl.append('<td class="blogMId emp' + [i] + '" value="' + res[i].MovieId + '"></td>');
-
                 $(".blogEdit").append(newTableEl);
             };
         }).then(function() {
